@@ -1,0 +1,2061 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{tabto}
+
+\author{Osorio Sarabio Alexis Fernando.}
+\date{\today}
+\title{An\'alisis Matem\'atico II.}
+
+\begin{document}
+    
+    \maketitle
+
+    \section{Primer Parcial.}
+
+    \textbf{Problema 1.1}. 
+    
+    Sea $X$ un conjunto. Pruebe que un conjunto $\mathcal{F} \subseteq 2^X$ es una
+     $\sigma$-\'algebra sobre $X$ si y s\'olo si cumple las siguientes condiciones:
+    \\
+
+    a) $X\in \mathcal{F}$
+
+    b) $\mathcal{F}$ es cerrado bajo complementos, es decir, si $A\in \mathcal{F}$, entonces
+    $X-A\in \mathcal{F}$.
+
+    c) $\mathcal{F}$ es cerrado bajo uniones numerables.
+    \\
+
+    Demostraci\'on: 
+    
+    Supongamos que $\mathcal{F}$ es una $\sigma$-\'algebra. Con esto ya 
+    tenemos que $\mathcal{F}$ es cerrado bajo complementos y bajo uniones numerables, solo
+    falta ver que $X\in \mathcal{F}$. Para mostrar esto, tomemos un elemetno 
+    $A\in \mathcal{F}$, luego $X-A\in \mathcal{F}$ y, como $\mathcal{F}$ es cerrado bajo 
+    uniones, tenemos que $X = A\cup (X-A) \in \mathcal{F}$.
+    \\
+
+    Ahora supongamos que las condiciones (a), (b) y (c) se cumplen. Ya tenemos que 
+    $\mathcal{F}$ tiene identidad, que es $X$, y que es cerrado bajo uniones numerables, solo
+    nos falta probar que es cerrado bajo la diferencia simetrica $\vartriangle$ y bajo la 
+    interseccion $\cap$. Sean $A,B\in \mathcal{F}$. Por el inciso (b) tenemos 
+    $X-A\in \mathcal{F}$ y $X-B\in \mathcal{F}$. Ahora, observemos que 
+
+    \[X-A\cap B = (X-A)\cup (X-B) \in \mathcal{F}\]
+    \\ 
+    Que junto con el inciso (b) resulta en $A\cap B\in \mathcal{F}$. De aqui tambien 
+    concluimos que $\mathcal{F}$ es cerrado bajo la diferencia de conjuntos, puesto que 
+    $A-B = A\cap (X-B)$. Ahora, observando la definicion de diferencia simetrica 
+    
+    \[A\vartriangle B = (A-B)\cup (B-A)\]
+    \\
+    Tenemos que es resultado de operaciones cerradas en $\mathcal{F}$, luego 
+    $A\vartriangle B\in \mathcal{F}$. Con esto finalmente obtenemos lo deceado, $\mathcal{F}$
+    es una $\sigma$-\'algebra. 
+    
+    \newpage
+
+    \textbf{Problema 1.2}. 
+    
+    Sea $X$ un conjunto no numerable y sea $\mathcal{G}$ el conjunto de todos 
+    los subconjunto unipuntuales de $X$, es decir
+
+    \[\mathcal{G} := \{\{t\} : t\in X\}\]
+    \\
+    Describa la $\sigma$-\'algebra generada por $\mathcal{G}$.
+    \\
+
+    Soluci\'on: Primero denotemos a la sigma algebra generada por $\mathcal{G}$ como
+    $\sigma(\mathcal{G})$. Considere al conjunto 
+
+    \[\mathcal{F} := \{A\subseteq X : A \; \mathrm{es \; numerable \; o} \; X-A \; \mathrm{es \; numerable.}\}\]
+    \\
+    Mostraremos que esta es la $\sigma$-\'algebra que estamos buscando. Primero probemos que
+    en principio $\mathcal{F}$ es una sigma algebra. 
+    \\
+
+    $i.\;\;$ Tenemos que $X\in \mathcal{F}$ desde que $X-X = \emptyset$ 
+    \\
+
+    $ii.\;$ Tomemos un $A\in \mathcal{F}$, entonces
+
+    \hspace*{12pt} $ii$.1 Si $A$ es numerable, entonces $X-A$ tiene complemento numerable, 
+    luego $X-A\in \mathcal{F}$.
+
+    \hspace*{12pt} $ii$.1 Si $A$ tiene complemento numerable, entonces $X-A$ es numerable,
+    luego $X-A\in \mathcal{F}$.
+    \\
+
+    $iii.$ Sea $\{A_n\}_{n\in \mathbb{N}}$ una sucesi\'on sobre $\mathcal{F}$. Sea 
+    $I := \{i\in \mathbb{N} : A_i \; \mathrm{es \; numerable}\}$ y sea
+
+    \hspace*{12pt} $K := \{k\in \mathbb{N} : A_k \; \mathrm{tiene \; complemento \; numerable}\}$, entonces 
+    tenemos que $\cup_{i\in I}A_i$  \hspace*{30pt} es numerable y $X-\cup_{k\in K}A_k = \cap_{k\in K}(X-A_k)$
+    tambien es numerable, por lo cual  
+    \hspace*{30pt} $\cup_{i\in I}A_i,\; \cup_{k\in K}A_k\in \mathcal{F}$,
+    luego
+
+    \[\bigcup_{n\in \mathbb{N}}A_n = \left(\bigcup_{i\in I}A_i\right)\cup\left(\bigcup_{k\in K}A_k\right)\in \mathcal{F}\]
+    \\
+    Por $i$, $ii$, $iii$ y por el problema (1.1) tenemos que $\mathcal{F}$ es una $\sigma$-
+    \'algebra. 
+    \\
+
+    Claramente $\mathcal{G}\subseteq \mathcal{F}$, luego 
+    $\sigma(\mathcal{G})\subseteq \mathcal{F}$. Veamos la otra contenci\'on. Sea $\mathcal{H}$
+    una $\sigma$-\'algebra que contenga a $\mathcal{G}$ y tomemos $A\in \mathcal{F}$, entonces
+    tenemos 2 posibilidades:
+    \\
+
+    I. \hspace*{2pt} $A$ es numerable, por lo tanto $A=\cup_{k\in \mathbb{N}} \{t_k\}$ en donde cada 
+    $\{t_k\}\in \mathcal{G}\subseteq \mathcal{H}$, luego $A\in \mathcal{H}$.
+    \\
+
+    II. $X-A$ es numerable, entonces, con un razonamiento similar al del inciso (I), tenemos
+    \hspace*{30pt} que $(X-A)\in \mathcal{H}$, luego $A\in H$
+    \\
+
+    Por ser $A$ arbitrario, tenemos que $\mathcal{F}\subseteq \mathcal{H}$, y como la misma 
+    $\mathcal{H}$ fue una $\sigma$-\'algebra que contiene a $\mathcal{G}$ arbitraria se 
+    concluye que $\mathcal{F}\subseteq \sigma(\mathcal{G})$, con lo que obtenemos nuestro
+    resultado.
+
+    \[\mathcal{F} = \sigma(\mathcal{G})\]
+    
+    \textbf{Problema 1.3}. 
+    
+    Describa el algebra de Borel cuando $(X,\tau)$ son los 
+    irracionales con la m\'etrica heredada por $\mathbb{R}$.
+    \\
+
+    Soluci\'on: Afirmamos que $\mathscr{B}(\mathbb{I})$ es generada por el conjunto 
+    $\mathcal{G} := \{(a,\infty)\cap \mathbb{I} : a\in \mathbb{R}\}$. A esta ultima 
+    $\sigma$-\'algebra la denotaremos como $\sigma(\mathcal{G})$. Para ver las igualdades
+    considere a $a,b\in \mathbb{R}$
+    \\
+    
+    1. $[b,\infty)\cap \mathbb{I} = \bigcap\limits_{n\in \mathbb{N}}(b-\frac{1}{n},\infty)\in \sigma(\mathcal{G})$
+    \\
+
+    2. $(a,b)\cap \mathbb{I} = (a,\infty)\cap \mathbb{I} \setminus [b,\infty)\cap \mathbb{I}\in \sigma(\mathcal{G})$
+    \\
+
+    3. Sea $A$ un abierto en $\mathbb{I}$. Sabemos que $A$ lo podemos representar como la 
+    union de una \hspace*{28pt} sucesi\'on de intevalos de la forma $(a_n,b_n)\cap \mathbb{I}$, con 
+    $a_n, b_n\in \mathbb{R}$, por lo que $A\in \sigma(\mathcal{G})$.
+    \\
+
+    Por (3) se tiene que $\sigma(\mathcal{G})$ contiene a la topologia $\tau$ de $\mathbb{I}$,
+    pero $\mathscr{B}(\mathbb{I})$ es la m\'inima $\sigma$-\'algebra con esta propiedad, por
+    lo tanto $\mathscr{B}(\mathbb{I})\subseteq \sigma(\mathcal{G})$.
+    Por otra parte, $\mathscr{B}(\mathbb{I})$ es una $\sigma$-\'algebra que contiene a 
+    $\mathcal{G}$, por lo cual $\sigma(\mathcal{G})\subseteq \mathscr{B}(\mathbb{I})$, con lo
+    que finalmente obtenemos nuestro resultado.
+
+    \[\mathscr{B}(\mathbb{I}) = \sigma(\mathcal{G})\]
+    \\
+
+    \textbf{Problema 1.4}. 
+    
+    Demuestre que la $\sigma$-\'algebra del eje real extendido se 
+    genera por los rayos de la forma $(a,\infty]$ con $a\in \mathbb{R}$.
+    \\
+
+    Demostraci\'on: Denotemos como $\mathcal{G} := \{(a,\infty] : a\in \mathbb{R}\}$ y 
+    $\sigma(\mathcal{G})$ la $\sigma$-\'algebra que genera. Observemos que 
+    $\sigma(\mathcal{G})\subseteq \mathscr{B}(\overline{\mathbb{R}})$ desde el echo 
+    $\mathcal{G}\subseteq \mathscr{B}(\overline{\mathbb{R}})$. Ahora veremos la otra 
+    contenci\'on. Para esto considere a $a,b\in \mathbb{R}$.
+    \\
+
+    $i.\;\; [b,\infty) = \bigcap\limits_{n\in \mathbb{N}} (b-\frac{1}{n},\infty)\in \sigma(\mathcal{G})$ 
+    \\
+
+    $ii.\; (a,b) = (a,\infty)\setminus [b,\infty) \in \sigma(\mathcal{G})$
+    \\
+
+    $iii.$ Tomemos un $A\subseteq \overline{\mathbb{R}}$ abierto, entonces
+
+    \hspace*{15pt} $iii$.1 Supongamos que el abierto tiene la forma $A = [-\infty,a)$ para algun 
+    $a\in\mathbb{R}$. Por \hspace*{58pt} $(i)$ ya tenemos que $[a,\infty)\in \sigma(\mathcal{G})$, luego se 
+    tiene que $[-\infty,a) = [a,\infty]^C \in \sigma(\mathcal{G})$.
+    
+    \hspace*{15pt} $iii$.2 Ahora, si $A$ es un abierto en $\overline{\mathbb{R}}$, entonces lo podemos 
+    expresar como la union de \hspace*{58pt} una sucesi\'on de la forma $(a_n,b_n)$ con 
+    $a_n,b_n\in \mathbb{R}$, luego $A\in \sigma(\mathcal{G})$.
+    \\
+
+    El punto $(iii)$ nos dice que todo abierto en $\overline{\mathbb{R}}$ esta en 
+    $\sigma(\mathcal{G})$, por lo tanto 
+    $\mathscr{B}(\overline{\mathbb{R}})\subseteq \sigma(\mathcal{G})$, con lo que obtenemos 
+    nuestro resultado.
+
+    \[\mathscr{B}(\overline{\mathbb{R}}) = \sigma(\mathcal{G})\]
+    \newpage
+
+    \textbf{Problema 1.5}. 
+    
+    a) Demostrar que la definici\'on de medida interior de un conjunto 
+    $A\subseteq E$ no depende de \hspace*{28pt} la medida del cuadrado que contenga a $A$.
+
+    b) Lo mismo es cierto para $\mathbb{R}^n$.
+    \\
+
+    Demostraci\'on: Sean $E_1,\; E_2$ rectangulos que contienen a $A$. Supongamos que 
+    $E_1\subseteq E_2$. Probaremos que $m(E_1)-\mu^*(E_1-A) = m(E_2)-\mu^*(E_2-A)$.
+    \\
+
+    Recordemos que $\mu^*(E_1-A) = \inf\{\sum_k m(P_k) : E_1-A\subseteq \cup_k P_k\}$. Por 
+    ser el infimo, dado $\epsilon > 0$, existe una sucesi\'on $\{P_k\}$ en $E_1$ tal que 
+
+    \[E_1-A\subseteq \bigcup_k P_k \;\; \mathrm{y}\;\; \mu^*(E_1-A) \leq \sum_k m(P_k) < \mu^*(E_1-A)+\epsilon\]
+    \\
+    Ahora considere $\{Q_k\}$ sucesi\'on en $E_2$ definida como 
+    $Q_k = P_k\cap E_2$, entonces tenemos que 
+
+    \[\sum_k m(Q_k) \leq \sum_k m(P_k)\;\; \mathrm{y}\;\; \leq E_2-A\subseteq (E_2-E_1)\cup\bigcup_k Q_k\]
+    \\
+    $E_1$ y $E_2$ son rectangulos, luego $E_2-E_1$ es un conjunto elemental,luego podemos 
+    escribir $E_2-E_1 = \cup_{i=1}^nR_i$ con $R_i$ rectangulos disjuntos, por lo cual podemos 
+    escribir 
+
+    \[E_2-A \subseteq \left(\bigcup_{i=1}^nR_i\right)\cup \left(\bigcup_k Q_k\right)\]
+    \\
+    Ademas, como $E_1\subset E_2$, tenemos que  
+    $\sum_{i=1}^nR_i = \tilde{m} (E_2-E_1) = m(E_2)-m(E_1)$. Con esto obtenemos lo siguiente
+
+    \begin{gather*}
+        \mu^* (E_2-A) \leq \sum_k Q_k+m(E_2)-m(E_1) \\
+        \Rightarrow \mu^* (E_2-A)+m(E_1) \leq \sum_k Q_k+m(E_2) \leq \sum_k m(P_k)+m(E_2) < \mu^*(E_1)+\epsilon+m(E_2) \\
+        \because \mu^* (E_2-A)+m(E_1) \leq \mu^*(E_1)+m(E_2)
+    \end{gather*}
+    \\
+    La otra desigualdad se demuestra de manera similar, con lo cual obtenemos nuestro 
+    resultado.
+    \\
+
+    En el caso de que $E_2\nsubseteq E_1$ y $E_1\nsubseteq E_2$, solo es necesario observar 
+    que $A\subseteq E_1\cap E_2$, que tambien es un rectangulo, luego aplicamos la parte 
+    anterior y por transitividad obtenemos el resultado.
+
+    \newpage
+
+    \textbf{Problema 1.6}
+
+    Ver si la medida $\mu_*(A)$ es equivalente a  $\sup\left\{\sum\limits_k m(Q_k)\; :\; 
+    Q_k\; \mathrm{rectrangulo},\;\bigcup\limits_k Q_k\subseteq A.\right\}$
+    \\
+
+    \noindent Respuesta: En lo general no. Para ver esto consideremos a la suceci\'on $\{Q_k\}$ 
+    definida como 
+    \[Q_k = \left[0,\frac{1}{k}\right]\times[0,1]\;\; \mathrm{para\; todo}\;\; k\in \mathbb{N}\]
+    
+    \noindent Podemos observar que $\cup_k Q_k \subset [0,1]\times [0,1]$, pero mientras que 
+    $m([0,1]\times [0,1]) = 1$, por otro lado se tiene que 
+
+    \[\sum_k m(Q_k) = \sum_k \frac{1}{k}\]
+    \\
+    Que es una serie que diverge, lo cual contradice nuestra conjetura. 
+
+    Agreguemosle una hipotesis extra; supongamos que los $Q_k$ son disjuntos a pares. 
+    Mostraremos que con esta hipotesis la igualdad se cumple. Denotemos a 
+
+    \[\alpha := \sup\left\{\sum_k m(Q_k)\; :\;Q_k\; \mathrm{rectangulos \; disjuntos},\; \cup_k Q_k \subseteq A \right\}\]
+    Recordemos que, por ser los $Q_k$ rectangulos, tenemos que 
+
+    \[\mu_* (\cup_k Q_k) = \sum_k m(Q_k) \dotsc (1)\]
+    Por otra parte
+    \begin{gather*}
+        \cup_k Q_k \subseteq A\; \Rightarrow\; E-A \subseteq \cup_k Q_k 
+        \Rightarrow\; \mu^*(E-A) \leq \mu^*(\cup_k Q_k) \Rightarrow\; \\
+        1-\mu^*(\cup_k Q_k) \leq 1-\mu^*(E-A) 
+        \Rightarrow \mu_*(\cup_k Q_k) \leq \mu_*(A)
+    \end{gather*}
+    Que por (1) tenemos que 
+    \[\sum_k m(Q_k) \leq \mu_*(A)\]
+
+    \noindent De donde se sigue que $\alpha \leq \mu_*(A)$. Por otro lado
+    \begin{gather*}
+        \mu_*(A) = 1-\mu^*(E-A) = 1-\inf\{\sum\nolimits_k m(Q_k)\; : E-A\subseteq \cup_k Q_k\} = \\
+        1+\sup\{-\sum\nolimits_k m(Q_k)\; : E-A\subseteq \cup_k Q_k\} = \sup\{1-\sum\nolimits_k m(Q_k)\; :E-A\subseteq \cup_k Q_k\} = \\
+        \sup\{\mu_*(E-\cup_k Q_k)\; :E-\cup_k Q_k\subseteq A\}
+    \end{gather*}
+    En particular, podemos decir que $E-\cup_k Q_k = P_k$, con $P_k$ rectangulos disjuntos,
+    pero entonces
+
+    \[\mu_* (E-\cup_k Q_k) = \mu_*(\cup_k P_k) = \sum_k m(P_k)\]
+    De donde, por la definicion de $\alpha$, obtenemos
+    \[\mu_*(A) \leq \alpha \because \mu_*(A) = \alpha\]
+
+    \textbf{Problema 1.7}
+
+    ¿Puede dar un ejemplo donde $\mu_*(A) < \mu^*(A)$?
+    \\
+
+    Respuesta: Concentremonos en la medida de Lebesgue. Definamos sobre $\mathbb{R}$ la 
+    realci\'on $\sim$ como:
+
+    \[x\sim y\; \Leftrightarrow\; x-y\in \mathbb{Q}\]
+    Esta es una relaci\'on de equivalencia puesto que 
+    \\
+
+    $i$. \hspace*{5pt} $x-x = 0\in \mathbb{Q}$, $\sim$ es reflexiva.
+
+    $ii$. \hspace*{1pt} Si $x-y\in \mathbb{Q}$, entonces $-(x-y) = y-x\in \mathbb{Q}$, $\sim$ es simetrica.
+
+    $iii.$ Sean $x,y,z\in \mathbb{R}$ tales que $x\sim y$ y $y\sim z$, entonces existen 
+    $s,t\in \mathbb{Q}$ tales que $x-y = s$ \hspace*{33pt} y $y-z = t$, luego 
+    $x-z = (x-y)+(y-z) = s-t\in \mathbb{Q}$, $\sim$ es transitiva.
+    \\
+
+    Notemos que cada clase de equivalencia tiene la forma $\mathbb{Q}+x$ para lagun 
+    $x\in \mathbb{R}$. Ahora, usando el axioma de elecci\'on podemos formar el conjunto $E$
+    ,subconjunto del $(0,1)$, que contiene solo un representante de cada clase y solo 
+    contiene a dichos elementos, mostraremos que este conjunto no es lebesgue medible.
+
+    Sea $\{r_n\}$ una enumeraci\'on de los racionales en $(-1,1)$ y para cada $n\in \mathbb{N}$
+    definamos $E_n := E+r_n$. Observemos que 
+    \\
+
+    (a) Los conjuntos $E_n$ son disjuntos.
+
+    \hspace*{14pt} En efecto, si $E_m\cap E_n \neq \emptyset$, entonces existen $e,e'\in E$ tales que 
+    $e+r_m = e'+r_n$ o \hspace*{32pt} equivalente $e-e' = r_n-r_m$ de donde se sigue $e\sim e'$, por lo cual
+    $e = e'$ y $m=n$. \\
+
+    (b) $\cup_n E_n$ esta contenido en $(-1,2)$. 
+
+    \hspace*{14pt} Esto se sigue de que $E\subseteq (0,1)$ y de que cada $r_n$ esta contenido en $(-1,1)$.\\
+
+    (c) $(0,1)\subseteq \cup_n E_n$. 
+
+    \hspace*{14pt} Tomemos $x\in (0,1)$ y sea $e\in E$ tal que $x\sim e$. Entonces $x-e$ es un racional 
+    \hspace*{32pt} perteneciente a $(-1,1)$, asi que tiene la forma de $x-e = r_n$ para algun 
+    $n\in \mathbb{N}$, luego \hspace*{32pt} $x = e+r_n\in E_n$ de donde se sigue nuestra afirmaci\'on.  
+    \\ \\
+    Supongamos que $E$ es medible, entonces cada $E_n$ es medible y por (a), se tiene que 
+
+    \[\lambda(\cup_nE_n) = \sum_n \lambda (E_n)\]
+    Mas aun, como $\lambda$ es invariante ante traslaciones (vease problema 12), tenemos que 
+    $\lambda (E) = \lambda (E_n)$. Ahora, si $\lambda(E) = 0$, entonces 
+    $\lambda(\cup_nE_n) = 0$ que contradice a (c). Si $\lambda(E) > 0$, entonces 
+    $\lambda(\cup_nE_n) = \infty$ contradiciendo (b). Por lo tanto $E$ no es medible. Como 
+    consecuencia se tiene que 
+
+    \[\lambda_*(E) < \lambda^*(E)\]
+    \\
+
+    \textbf{Problema 1.8}
+    
+    Sea $E$ el cuadrado unitario, probar que 
+    \\
+
+    (a) Todo subconjunto abierto de $E$ es medible.
+    
+    (b) Todo subconjunto cerrado de $E$ es medible.
+
+    (c) Todo conjunto formado por una cantidad contable de uniones, intersecciones
+    y com- \hspace*{32pt} plementos de conjuntos abiertos o cerrados es medible.
+    \\
+
+    Demostraci\'on: En esta ocasi\'on $d$ denotara la metrica inducida por la norma infinito. 
+    \\
+
+    (a) Tomemos $A\subset E$ abierto. Si $A = \emptyset$, entonces podemos verlo como
+    $A = (a,a)\times (a,a)$, para algun $a\in [0,1]$, luego $A$ es medible, con medida cero.
+    \\
+    
+    Ahora supongamos que $A \neq \emptyset$. Como $E$ es cerrado $A \neq E$, luego
+    $E-A \neq \emptyset$. $A$ es abierto, entonces para todo $x\in A$ la distancia 
+    $d(x,E-A) > 0$. Por otra parte $\mathbb{Q}\times \mathbb{Q}\cap E$ es denso en $E$,
+    luego $\mathbb{Q}\times \mathbb{Q}\cap A$ es denso en $A$. Sea $\{q_n\}$ una 
+    enumeraci\'on de $\mathbb{Q}\times \mathbb{Q}\cap A$, entonces para todo $n\in \mathbb{N}$
+    $d(q_n,E-A) > 0$, que por el bien de la simplisidad a esta distancia la llamaremos $d_n$.
+    Teniendo en cuenta lo anterior consideremos la familia de abiertos $\{Q_n\}$ definida como
+
+    \[Q_n = (q_n-d_n,q_n+d_n)\times (q_n-d_n,q_n+d_n)\;\; \mathrm{para\; todo}\;\; n\in \mathbb{N}\]
+    
+
+    \noindent Por la definici\'on de la familia tenemos que $\cup_n Q_n \subseteq A$. Ahora
+    tomemos $x\in A$. Entonces existe $\epsilon > 0$ tal que $d(x,E-A) = \epsilon$, pero
+    $\mathbb{Q}\times \mathbb{Q}\cup A$ es denso en $A$, luego existe $q_n$ tal que 
+    $d(x,q_n) < \epsilon/2$, luego $x\in Q_n$; como $x$ fue arbitrario, se tiene que 
+    $A\subseteq \cup_n Q_n$. 
+
+    \[A = \bigcup_n Q_n\]
+
+    \noindent As\'i que podemos ver a este abierto como una union numerable de rectangulos, que 
+    son conjuntos medibles, luego $A$ es medible y como $A$ fue un abierto arbitrario, 
+    obtenemos (a).
+    \\
+
+    (b) Sea $C\subseteq E$ cerrado, entonces $E-C$ es abierto y por el inciso (a) $E-C$ es 
+    medible. Como el sistema de conjuntos medibles forma un $\sigma$-anillo tenemos que 
+    $E-C$ tambien es medible.
+    \\
+    
+    (c) Sea $B\subseteq E$ un conjunto formado por una cantidad a lo mas numerable de uniones,
+    intersecciones y complementos de conjuntos abiertos o cerrados. Por (a) y (b), se Puede 
+    decir que $B$ esta formado por una contidad a lo mas numerable de 
+    uniones, intersecciones y complementos de conjuntos medibles, por lo cual $B$ tambien es 
+    medible.
+    \newpage
+
+    \textbf{Problema 1.10}
+
+    Pruebe que el conjunto de los numeros racionales en el eje real es medible, con 
+    medida cero.
+    \\
+
+    Prueba: Notemos que, cualquier conjunto $A\subseteq\mathbb{R}$ con $\lambda^*(A) = 0$ es 
+    medible. Esto es consecuencia inmediata de la desiguialdad 
+    $0 \leq \lambda_*(A) \leq \lambda^*(A)$. Ahora bien, para toda $t\in \mathbb{R}$ tenemos 
+    $\lambda^*(\{t\}) = 0$, luego $\{t\}$ es medible con $\lambda (\{t\}) = 0$. Sea $\{q_n\}$
+    una enumeraci\'on de los racionales en el eje real, entonces $\{q_n\}$ es medible para 
+    todo $n\in \mathbb{N}$. M\'as aun, como $\mathbb{Q} = \cup_n \{q_n\}$, entonces 
+    $\mathbb{Q}$ es medible y 
+    
+    \[\lambda (\mathbb{Q}) = \sum_n \lambda (\{q_n\}) = 0\]
+    \\
+
+    \textbf{Problema 1.11}
+
+    Pruebe que el conjunto de Cantor es medible, con medida cero.
+    \\
+
+    Prueba: Denotemos como $F$ al conjunto de Cantor y como $F_n$ las respectivas particiones 
+    para formarlo. Sabemos que cada $F_n$ es un conjunto elemental, ademas 
+    \begin{gather}
+        \mathrm{Para \; todo}\; n\in \mathbb{N} \;\; \lambda (F_n) = \left(\frac{2}{3}\right)^n \\
+        \mathrm{Para \; todo}\; n\in \mathbb{N} \;\; F_{n+1} \subseteq F_{n} \\
+        F = \bigcap_n F_n
+    \end{gather}
+    Por (3) tenemos que el conjunto de Cantor es la intersecci\'on numerable de conjuntos 
+    elementales, por lo cual es medible. M\'as aun, (1) y (3) nos dicen que es la 
+    intersecci\'on de una suceci\'on decresiente de conjuntos medibles, por lo tanto 
+
+    \[\lambda (F) = \lambda (\cap_n F_n) = \lim_{n\rightarrow \infty} \lambda (F_n) = \lim_{n\rightarrow \infty} \left(\frac{2}{3}\right)^n = 0\]
+    \\
+
+    \textbf{Problema 1.12}
+
+    Pruebe que todo conjunto de medida positiva en el intervalo $[0,1]$ contiene un par de 
+    puntos cuya distancia es un numero racional. 
+    \\
+
+    Prueba: Primero probaremos que $\lambda$ es invariante ante traslaciones. Sea 
+    $T:\mathbb{R} \rightarrow \mathbb{R}$ funci\'on definida como 
+
+    \[T(x) := x+t \; \mathrm{para \; alguna}\; t\in \mathbb{R}\]
+    
+    \noindent Ya tenemos que $T$ es biyectiva y que conserva distancias. Veremos que $T$
+    conserva intervalos, o mejor dicho, si $I = (a,b)$ entonces $T(I) = (a+t,b+t)$. Sea 
+    $I = (a,b) \subset \mathbb{R}$
+
+    \begin{equation}
+        \begin{aligned}
+        & y\in T(I) \\
+        & \Leftrightarrow \exists x\in (a,b)\; \mathrm{tal\;que}\; y = x+t \\
+        & \Leftrightarrow \exists x\in (a,b)\; \mathrm{tal\;que}\; y-t = x \\
+        & \Leftrightarrow a < y-t < b \\
+        & \Leftrightarrow a+t < y < b+t \\
+        & \Leftrightarrow y\in (a+t,b+t)
+        \end{aligned}
+    \end{equation}
+    
+    Por lo tanto $T(I) = (a+t,b+t)$. Con esto tambien podemos ver que 
+
+    \[\lambda (a,b) = b-a = (b+t)-(a+t) = \lambda (T(a,b))\]
+    Para mostrar la invarianza ante traslaciones, debemos mostrar que 
+    $\lambda^*(A) = \lambda (T(A))$ para toda $A\subset \mathbb{R}$. Sea $\epsilon > 0$, 
+    entonces existe $\{Q_k\}$ sucesi\'on de intervalos tal que 
+
+    \[A\subseteq \cup_k Q_k\;\; \mathrm{y}\;\; \lambda^*(A) \leq \sum_k m(Q_k) < \lambda^* (A)+ \epsilon\]
+    Por la contenci\'on mostrada tenemos que $T(A) \subseteq T(\cup_k Q_k) = \cup_k T(Q_k)$, 
+    asi que 
+
+    \[\lambda^* (T(A)) \leq \sum_k m(T(Q_k)) = \sum_k m(Q_k) < \lambda^*(A)+\epsilon\]
+    Luego, por ser $\epsilon$ arbitrario, se tiene que $\lambda^*(T(A)) \leq \lambda^* (A)$.
+    Por otra parte, dado $\epsilon > 0$ existe $\{P_k\}$ sucesi\'on de intervalos tal que 
+
+    \[T(A)\subseteq \cup_k P_k\;\; \mathrm{y}\;\; \lambda^*(T(A)) \leq \sum_k m(P_k) < \lambda^*(T(A))+\epsilon\]
+    $T$ es biyectiva, entonces $A = T^{-1}T(A) \subseteq \cup_k T^{-1} (P_k)$, luego
+
+    \[\lambda^*(A) \leq \sum_k \lambda^*(T^{-1}(P_k)) = \sum_k m(p_k) < \lambda^*(T(A))+\epsilon\]
+    Por ser $\epsilon$ arbitrario, se tiene que $\lambda^*(A) \leq \lambda^*(T(A))$. Por lo 
+    tanto $\lambda^*(A) = \lambda^*(T(A))$. Ahora solo falta mostrar que la traslaci\'on de 
+    un conjunto medible es medible. Sea $A\subset \mathbb{R}$ medible, entonces existe
+    $B\subset \mathbb{R}$ elemental tal que 
+
+    \[\lambda^* (A\triangle B) < \epsilon\]
+    $B$ es elemental, luego tiene la forma $B = \cup_{k=1}^n Q_k$ con $Q_k$ intervalos. Ya 
+    demostramos que $T(Q_k)$ es un intervalo. Observe que 
+
+    \[T(B) = T(\cup_{k=1}^n Q_k) = \cup_{k=1}^n T(Q_k)\]
+    $T(B)$ es un conjunto elemental. Con esto tenemos que 
+
+    \[\lambda^*(T(A)\triangle T(B)) = \lambda^*(T(A\triangle B)) = \lambda^* (A\triangle B) < \epsilon\]
+    Por lo tanto $T(A)$ es medible y por nuestro resultado anterior tenemos que 
+
+    \[\lambda (A) = \lambda (T(A))\]
+    Ahora demostraremos nuestro ejercicio. Sea $A\subseteq [0,1]$ medible con $\lambda (A) > 0$
+    Sea $\{q_n\}$ una enumeraci\'on de $\mathbb{Q}\cap [0,1]$. Para cada $n\in \mathbb{N}$
+    definamos 
+
+    \[A_n = T_{q_n} (A) = A+q_n\]
+    Como ya demostramos, estos conjuntos son medibles con $\lambda (A_n) = \lambda (A)$. Sea 
+    $t\in A_n$, entonces existe $a\in A$ tal que $t = a+q_n$; como $a,q_n\in[0,1]$, entonces 
+    tenemos que $t\in [0,2]$, luego $A_n\subseteq [0,2]$ para todo $n\in \mathbb{N}$, luego
+    $\cup_n A_n \subseteq [0,2]$, por lo tanto $\lambda (\cup_n A_n) \leq 2$. 
+    Supongamos que $\{A_n\}$ es una sucesi\'on disjunta, entonces por definicion de medida
+    tenemos que 
+
+    \[\lambda(\cup_n A_n) = \sum_n \lambda (A_n) = \sum_n \lambda(A) = \infty\]
+    Lo cual no puede ser, luego existen $m,n\in \mathbb{N}$ tales que 
+    $A_m\cap A_n \leq \emptyset$. Sea $r\in A_m\cap A_n$, entonces existen $a_m\in A_m$ y
+    $a_n\in A_n$ tales que $a_m+q_m = a_n+q_n$, luego
+
+    \[|a_m-a_n| = |q_n-q_m| \in \mathbb{Q}\]
+    \\
+
+    \textbf{Problema 1.13}
+
+    Sea $X$ un conjunto. Pongamos $\mathcal{F} := 2^X$ y definamos la funci\'on 
+    $\mu:\mathcal{F}\rightarrow [0,\infty]$ como
+
+    \begin{equation*}
+        \mu(A) = \left\{ 
+        \begin{aligned}
+            \; \infty \:\;\text{si A es infinito.} \\
+            |A| \;\;\;\;\text{si A es finito.}
+        \end{aligned}
+        \right.
+    \end{equation*}
+    Muestre que $\mu$ es una medida.
+    \\
+
+    Demostraci\'on: Por hipotesis ya tenemos que $\mu$ es no negativa definida sobre 
+    $\mathcal{F} = 2^X$ que es una $\sigma$-\'algebra. Ademas 
+    \[\mu (\emptyset) = |\emptyset| = 0\]
+    
+    \noindent Solo falta ver que $\mu$ es aditiva. 
+    Sean $A_1,\ldots,A_n\in \mathcal{F}$ disjuntos, entonces tenemos dos casos
+    \\
+    
+    (a) Existe $k\in \{1,\ldots,n\}$ tal que $A_k$ es infinito, luego $\cup_{i=1}^n A_i$ es 
+    infinito y
+
+    \[\sum_{i=1}^n \mu(A_i) = \mu(A_k)+\sum_{i\leq k}^n \mu(A_i) = \infty+\sum_{i\leq k}^n \mu(A_i) = \infty = \mu \left(\bigcup_{i=1}^n Q_i \right)\]
+
+    (b) $A_i$ es finito para toda $i\in \{1,\ldots,n\}$. Como los $A_i$ son disjuntos, tenemos
+
+    \[\sum_{i=1}^n \mu(A_i) = \sum_{i=1}^n |A_i| = \left|\bigcup_{i=i}^nA_i\right| = \mu \left(\bigcup_{i=1}^n A_i\right)\]
+
+    \noindent En cualquier caso $\mu$ es aditiva.
+    \newpage
+
+    \textbf{Problema 1.14}
+
+    Sea $X$ un conjunto, $\mathcal{F} = 2^X$ y $x_0\in X$. Definamos 
+    $\mu:\mathcal{F}\rightarrow [0,\infty]$ como 
+    \begin{equation*}
+        \mu (A) = \left\{
+        \begin{aligned}
+            1\;\; \text{si}\; x_0\in A \\
+            0\;\; \text{si}\; x_0\in A
+        \end{aligned}
+        \right.
+    \end{equation*}    
+    Pruebe que $\mu$ es una medida.
+    \\
+
+    Por hipotesis $\mu$ es no negativa. Como $x_0 \notin \emptyset$ tenemos 
+    $\mu(\emptyset) = 0$. Solo falta mostrar que $\mu$ es aditiva. Sea 
+    $P_1,\ldots,P_n\in \mathcal{F}$ conjuntos disjuntos, entonces tenemos los casos
+    \\
+
+    (a) Para todo $i\in \{1,\ldots,n\}\;\; x_0\notin P_i$, luego 
+    $x_0 \notin \cup_{i=i}^n P_i$ y 
+
+    \[\sum_{i=1}^n \mu(P_i) = 0 = \mu \left(\bigcup_{i=1}^n P_i\right)\]
+
+    (b) Por ser disjuntos, existe un unico $k\in \{1,\ldots,n\}$ tal que $x_0 \in P_k$, luego
+    $x_0 \in \cup_{i=1}^n P_i$ y 
+
+    \[\sum_{i=1}^n \mu(P_i) = \mu(P_k) = 1 = \mu\left(\bigcup_{i=1}^n P_i\right)\]
+    En cualquier caso, $\mu$ es aditiva.
+    \\ \\
+
+    \textbf{Problema 1.15}
+
+    Sea $X$ un conjunto no numerable. Definamos 
+    $N := \{B\subset X : B\; \text{es a lo mas numerable}\}$. Como ya hemos visto, la 
+    coleccion $\mathcal{F} = \{A\subset X : A\in N\; \text{o}\; X-A\in N\}$ es una 
+    $sigma$-\'algebra sobre X. Definamos a $\mu:\mathcal{F} \rightarrow [0,\infty]$ como 
+    \begin{equation*}
+        \mu (A) := \left\{ 
+        \begin{aligned}
+            0 \;\;\;\;\;\;\;\;\;\;\text{si}\; A\in N \\
+            \infty \; \text{si}\; X-A\in N
+        \end{aligned}
+        \right.
+    \end{equation*}
+    Pruebe que $\mu$ es una medida.
+    \\
+
+    Ya tenemos que $\mu$ es no negativa. Como $\emptyset\in N$, entonces $\mu(\emptyset) = 0$.
+    Veremos que $\mu$ es aditiva. Sean $A_1,\ldots,A_n\in \mathcal{F}$ disjuntos, entonces 
+    \\
+
+    $i$) Si para todo $i\in \{1,\ldots,n\}$ se tiene que $A_i\in N$, entonces 
+    $\cup_{i=1}^n A_i \in N$, luego
+    
+    \[\sum_{i=1}^n\mu(A_i) = 0 = \mu\left(\bigcup_{i=1}^n A_i\right)\]
+
+    $ii$) Si existe $k\in \{1,\ldots,n\}$ tal que  $X-A_k\in N$, entonces
+    $X-\cup_{i=1}^n A_i= \cap_{i=1}^n(X-A_i) = \hspace*{30pt} A_k\cap(\cap_{i\neq k}^n A_i)\in N$, luego
+    
+    \[\sum_{i=1}^n \mu(A_i) = \mu(A_k) = \infty = \mu \left(\bigcup_{i=1}^n A_i\right)\]
+    \newpage
+
+    \textbf{Problema 1.17.}
+
+    Sea $X = \{x_1,x_2,\ldots\}$ un conjunto a lo mas numerable y sean $P_1,P_2,\ldots$ 
+    numeros positivos tales que 
+    \[\sum_{i=1}^{\infty} P_i = 1\]
+    Sobre $2^X$ definimos la medida $\mu$ como
+
+    \[\mu(A) := \sum_{i=1}^\infty \chi_{x_i}(A)P_i \;\; \text{para todo}\; A\subseteq X\]
+    Probar que $\mu$ es $\sigma$-aditiva, con $\mu(X) = 1$.
+    \\
+
+    Prueba: Por hipotesis $\mu$ es no negativa, ademas $x\notin \emptyset$ para todo 
+    $x\in X$, luego $\mu(\emptyset) = 0$. Falta demostrar que $\mu$ es $\sigma$-aditiva.
+    Sea $\{A_n\}$ una suceci\'on de conjuntos disjuntos sobre $2^X$ y definamos la familia
+    $\{I_k\}$ como
+
+    \[I_k := \{i\in \mathbb{N} : x_i\in A_k\}\]
+    Entonces los $I_k$'s son disjuntos, m\'as aun
+
+    \[\mu(A_k) = \sum_{i\in I_k}P_i\;\; \Rightarrow\;\; \mu\left(\bigcup_{k=1}^{\infty}A_k\right) = \sum_{i\in I}P_i\]
+    Donde $I = \cup_{k=1}^{\infty} I_k$. De la ultima igualdad se tiene que 
+
+    \[\mu\left(\bigcup_{k=1}^{\infty}A_k\right) = \sum_{i\in I}P_i = \sum_{k=1}^{\infty} \left(\sum_{i\in I_k}P_i\right) = \sum_{k=1}^{\infty}\mu(A_k)\]
+    Por lo tanto $\mu$ es $\sigma$-aditiva.
+    \\ \\
+
+    \textbf{Problema 1.18.}
+
+    Sea $X := \mathbb{Q}\cap[0,1]$ y sea $\mathscr{S}_{\mu}$ el conjunto de todas las 
+    intersecciones de $X$ con subsintervalos cerrados, abiertos, semiabierto y conjuntos 
+    unipuntuales del $[0,1]$. Probar que $\mathscr{S}_{\mu}$ es semianillo.
+
+    Sobre $\mathscr{S}_{\mu}$ definimos $\mu$ como $\mu(A_{ab}) := b-a$. Probar que $\mu$ es 
+    aditiva, pero no $\sigma$-aditiva.
+    \\
+
+    Prueba: Veamos que $\mathscr{S}_{\mu}$ es un semianillo. 
+
+    (a) Desde que $[i,i]\cap X = \emptyset$ tenemos que $\emptyset \in \mathscr{S}_{\mu}$.
+     \\
+
+    (b) Tomemmos $A,B\in \mathscr{S}_{\mu}$, entonces existen $a_1,a_2,b_1,b_2\in [0,1]$ 
+    tales que $A = (a_1,a_2)\cap X$ \hspace*{33pt} y $B = (b_1,b_2)\cap X$, entonces se tine que 
+
+    \[A\cap B = [(a_1,a_2)\cap X] \cap [(b_1,b_2)\cap X] = [(a_1,a_2)\cap (b_1,b_2)]\cap X \in \mathscr{S}_{\mu}\]
+    \\
+
+    (c) Sean $A,A_1\in \mathscr{S}_{\mu}$ con $A_1\subseteq A$, entonces $A = (a_1,a_2)\cap X$
+    y $A_1 = (s,t)$ con $a_1 \leq s \leq \hspace*{33pt} t \leq a_2$. Consideremos $A_2 = (a_1,s)$ y 
+    $A_3 = (t,a_3)$. Observemos que 
+    \begin{equation*}
+        \begin{aligned}
+            & A = [(a_1,s)\cup(s,t)\cup(t,a_2)]\cap X \\
+            & = [(s,t)\cap X]\cup[(a_1,s)\cap X]\cup[(t,a_2)\cap X] \\
+            & = \cup_{i=1}^3 A_i
+        \end{aligned}
+    \end{equation*} 
+    Por lo tanto $\mathscr{S}_{\mu}$ es un semianillo. Ahora veremos que $\mu$ no es $\sigma$
+    aditiva. Primero notemos que $X$ es numerable ya que $X = Q\cap[0,1]$. Sea $\{\}$
+    \\ \\ \\
+
+    \textbf{Problema 1.19}
+
+    Sea $(X,\mathcal{F},\mu)$ un espacio con medida, entonces las siguientes condiciones son 
+    equivalentes
+    \\
+
+    a) Existe una sucesi\'on $\{A_i\}$ de conjuntos medibles tales que $\mu(A_i) < \infty$
+    para todo $i\in \mathbb{N}$ \hspace*{29pt} y $X = \cup_i A_i$
+    \\
+
+    b) Existe una sucesi\'on creciente $\{B_i\}$ de conjuntos medibles tales que 
+    $\mu(B_i) < \infty$ para \hspace*{29pt} todo $i\in \mathbb{N}$ y $X = \cup_i B_i$
+    \\
+
+    c) Existe una sucesi\'on $\{C_i\}$ de conjuntos disjuntos medibles tales que 
+    $\mu(C_i) < \infty$ para \hspace*{29pt} todo $i\in \mathbb{N}$ y $X = \cup_i C_i$
+    \\
+
+    Demostraci\'on: 
+    \\
+
+    Si (a) entonces (b). 
+
+    Consideremos la sucesi\'on $\{B_i\}$ definida como $B_i = \bigcup_{k=1}^i A_i$.
+    Cada $B_i$ esta formado por la union finita de conjuntos medibles, luego cada $B_i$ es medible.
+    Claramente esta sucesi\'on es creciente, con 
+    $\mu (B_i) \leq \sum_{k=1}^i\mu(A_i) < \infty$. Ademas $\cup_i B_i = \cup_i A_i = X$,
+    con lo que obtenemos la implicaci\'on.
+    \\
+
+    Si (b) entonces (c).
+
+    Consideremos la sucesi\'on $\{C_i\}$ definida como $C_1 = B_1,\; C_i = B_i-B_{i-1}$. 
+    Cada $C_i$ es la diferencia de dos conjuntos medibles, luego cada $C_i$ es medible.
+    Entonces esta sucesi\'on es una sucesi\'on de conjuntos disjuntos medibles con 
+    $\mu(C_i) \leq \mu(B_i) < \infty$ ya que $C_i \subseteq B_i$. Ademas $\cup_i C_i = \cup_i B_i = X$,
+    con lo que obtenemos esta implicaci\'on.
+    \\
+
+    Como claramente (c) implica (a), tenemos nuestro resultado.
+    \newpage
+
+    \textbf{Problema 1.20}
+
+    Probar que $(-\infty,c)$ generan el \'algebra de borel.
+    \\
+
+    Prueba: Sea $\mathcal{G} := \{(-\infty,c) : c\in\mathbb{R}\}$ y $\sigma(\mathcal{G})$ la 
+    $\sigma$-\'algebra que genera. Notemos que $\mathcal{G} \subseteq \mathscr{B}(\mathbb{R})$,
+    luego $\sigma(\mathcal{G})\subseteq \mathscr{B}(\mathbb{R})$. Veamos la otra contenci\'on.
+    \\
+
+    $i$) $(-\infty,c] = \cap_n (-\infty,c+\frac{1}{n})$ entonces $(-\infty,c] \in \sigma(\mathcal{G})$
+    \\
+
+    $ii$) $(a,b) = (-\infty,a]^C\cap (-\infty,b)$ entonces $(a,b)\in \sigma(\mathcal{G})$
+    \\
+
+    $iii$) Sea $A\subseteq \mathbb{R}$ un abierto, entonces $A$ puede ser representado como 
+    la union de una \hspace*{36pt} sucesi\'on de intervalos abiertos de la forma $(a_n,b_n)$, luego 
+    $A\in \sigma(\mathcal{G})$. 
+    \\
+
+    De ($iii$) tenemos que $\sigma(\mathcal{G})$ contiene a todos los abiertos de 
+    $\mathbb{R}$, luego $\mathscr{B}(\mathbb{R})\subseteq \sigma(\mathcal{G})$. Finalmente
+    \[\mathscr{B}(\mathbb{R}) = \sigma(\mathcal{G})\]
+    \\
+
+    \textbf{Problema 1.21}
+
+    Sean $M,N$ conjuntos no vacios. Sea $f:M \rightarrow N$ funci\'on. Sea 
+    $\mathcal{M} \subseteq 2^M$ y sea 
+    
+    \[f(\mathcal{M}) := \{f(A)\subset N : A\in \mathcal{M}\}\]
+    Adem\'as sea $\mathcal{N} \subseteq 2^N$ y sea 
+
+    \[f^{-1}(\mathcal{N}) := \{f^{-1}(B)\subseteq M : B\in \mathcal{N}\}\]
+    Pruebe que 
+    \\
+
+    a) Si $\mathcal{N}$ es un anillo, entonces $f^{-1}(\mathcal{N})$ es un anillo.
+    
+    b) Si $\mathcal{N}$ es un \'algebra, $f^{-1}(\mathcal{N})$ tambi\'en lo es.
+    
+    c) Si $\mathcal{N}$ es una B-\'algebra, entonces $f^{-1}(\mathcal{N})$ tambi\'en lo es.
+
+    d) $\mathscr{R}(f^{-1}(\mathcal{N})) = f^{-1}(\mathscr{R}(\mathcal{N}))$ 
+
+    e) $\mathscr{B}(f^{-1}(\mathcal{N})) = f^{-1}(\mathscr{B}(\mathcal{N}))$
+    \\
+
+    Demostraci\'on: 
+
+    a) $\mathcal{N}$ es un anillo, luego $\mathcal{N} \neq \emptyset$ y dados 
+    $A,B \in \mathcal{N}$ se tiene que 
+
+    \[A\cap B\in \mathcal{N}\;\; \text{y}\;\; A\triangle B\in \mathcal{N}\]
+    entonces 
+    \\
+
+    $i$) $\hspace*{5pt}f^{-1}(N)$ es no vacio.
+    \\
+
+    $ii$) Dados $f^{-1}(A),f^{-1}(B)\in f^{-1}(N)$ se tiene, por propiedades de la imagen 
+    inversa, que \hspace*{31pt} $f^{-1}(A)\cap f^{-1}(B) = f^{-1}(A\cap B) \in f^{-1}(N)$ y 
+    $f^{-1}(A)\triangle f^{-1}(B) = f^{-1}(A\triangle B) \in f^{-1}(N)$.
+    \newpage
+
+    \noindent Por $(i)$ y $(ii)$ obtenemos que $f^{-1} (\mathcal{N})$ es un anillo.
+    \\
+
+    b) $\mathcal{N}$ es un algebra, luego $\mathcal{N}$ tiene identidad. Llamemosle $E$.
+    Sea $f^{-1}(A)\in f^{-1}(\mathcal{N})$, entonces
+
+    \[f^{-1}(A)\cap f^{-1}(E) = f^{-1}(A\cap E) = f^{-1}(A)\]
+    $f^{-1}(\mathcal{N})$ tiene identidad, y por (a), $f^{-1}(\mathcal{N})$ es un algebra.
+    \\
+
+    c) $\mathcal{N}$ es una B-\'algebra, entonces $\mathcal{N}$ es cerrado bajo uniones 
+    numerables. Sea $\{f^{-1}(A_n)\}$ una sucesi\'on sobre $f^{-1}(\mathcal{N})$, entonces
+
+    \[\bigcup_{n=1}^{\infty}f^{-1}(A_n) = f^{-1}\left(\bigcup_{n=1}^{\infty}A_n\right)\in f^{-1}(\mathcal{N})\]
+    Por lo tanto $f^{-1}(\mathcal{N})$ es una B-\'algebra.
+    \\
+
+    d) Por (a) tenemos que $f^{-1}(\mathscr{R}(\mathcal{N}))$ es un anillo. M\'as aun, 
+    como $\mathcal{N}\subseteq \mathscr{R}(\mathcal{N})$ tenemos que 
+    $f^{-1}(\mathcal{N})\subseteq f^{-1}(\mathscr{R}(\mathcal{N}))$, por lo tanto
+    $\mathscr{R}(f^{-1}(\mathcal{N}))\subseteq f^{-1}(\mathscr{R}(\mathcal{N}))$.
+    Ahora veamos la otra contenci\'on. Tomemos en cuenta el conjunto 
+
+    \[D := \{A \subseteq N : f^{-1}(A)\in \mathscr{R}(f^{-1}(\mathcal{N}))\}\]
+
+    1) Ya tenemos que $\mathcal{N} \subseteq D$, por lo tanto $D \neq \emptyset$
+    \\
+
+    2) Tomemos $A,B\in D$, entonces tenemos que $f^{-1}(A), f^{-1}(B)\in \mathscr{R}(f^{-1}(\mathcal{N}))$,
+    luego \hspace*{32pt}$f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)\in \mathscr{R}(f^{-1}(\mathcal{N}))$ por
+    lo tanto $A\cap B\in D$.
+    \\
+
+    3) Nuevamente tomemos $A,B\in D$, entonces $f^{-1}(A), f^{-1}(B)\in \mathscr{R}(f^{-1}(\mathcal{N}))$,
+    luego \hspace*{30pt} $f^{-1}(A\triangle B) = f^{-1}(A)\triangle f^{-1}(B)\in \mathscr{R}(f^{-1}(\mathcal{N}))$ por
+    lo tanto $A\triangle B\in D$.
+    \\
+
+    \noindent Por 1, 2 y 3 tenemos que $D$ es un anillo que contiene a $N$, por lo tanto contiene a 
+    $\mathscr{R}(\mathcal{N})$. Por la definici\'on de $D$ se concluye que 
+    $f^{-1}(\mathscr{R}(\mathcal{N})) \subseteq \mathscr{R}(f^{-1}(\mathcal{N}))$ obteniendo
+    el resultado deseado.
+    \\
+
+    (e) Por (c) se tiene que $f^{-1}(\mathscr{B}(\mathcal{N}))$ es una B-\'algebra. M\'as aun
+    como $\mathcal{N}\subseteq \mathscr{B}(\mathcal{N})$, se tiene que
+    $f^{-1}(\mathcal{N})\subseteq f^{-1}(\mathscr{B}(\mathcal{N}))$ por lo tanto 
+    $\mathscr{B}(f^{-1}(\mathcal{N})) \subseteq f^{-1}(\mathscr{B}(\mathcal{N}))$. Veamos la 
+    otra contenci\'on. Consideremos el conjunto
+
+    \[D := \{A \subseteq N : f^{-1}(A)\in \mathscr{B}(f^{-1}(\mathcal{N}))\}\]
+    De manera similar al inciso (d), de demuestra que $D$ es un anillo que contiene a $\mathcal{N}$. 
+    $\mathscr{B}(\mathcal{N})$ es irreducible, luego tiene identidad $E$. M\'as aun 
+    $f^{-1}(E)\in \mathscr{B}(f^{-1}(\mathcal{N}))$, luego $D$ tiene identidad. Ahora 
+    consideremos $\{A_n\}$ sucesi\'on sobre $D$, entonces 
+    $f^{-1}(A_n)\in \mathscr{B}(f^{-1}(\mathcal{N}))$ para todo $n\in \mathbb{N}$, luego,
+    por estar dentro de una B-\'algebra, se tiene que 
+
+    \[f^{-1}\left(\bigcup_n A_n\right) = \bigcup_n f^{-1} (A_n) \in \mathscr{B}(f^{-1}(\mathcal{N}))\]
+    Por lo tanto $\cup_n A_n \in D$. De lo anterior concluimos que $D$ es una B-\'algebra que 
+    contiene a $\mathcal{N}$, por lo tanto contiene a $\mathscr{B}(\mathcal{N})$. Por la 
+    definici\'on de $D$ obtenemos que 
+    $f^{-1}(\mathscr{B}(\mathcal{N}))\subseteq \mathscr{B}(f^{-1}(\mathcal{N}))$, obteniendo 
+    as\'i nuestro resultado $\mathscr{B}(f^{-1}(\mathcal{N}))$.
+    \\ \\ 
+
+    \textbf{Problema 1.22.}
+
+    Considere el teorema $\star$.
+
+    a) Probar que las $f_n$'s estan bien definidas.
+
+    b) ¿Que pasa para $f < 0$?
+    \\
+
+    Demostraci\'on: Observemos la definici\'on de cada $f_n$:
+
+    \[f_n(x) = \frac{m}{n}\;\; \text{si}\;\; \frac{m}{n} \leq f(x) \leq \frac{m+1}{n}\]
+    De esta definicion obtenemos que 
+    \begin{equation*}
+        \begin{aligned}
+            & \frac{m}{n} \leq f(x) \leq \frac{m+1}{n} 
+            & \Leftrightarrow m \leq nf(x) \leq m+1 
+            & \Leftrightarrow m = \lfloor nf(x) \rfloor
+        \end{aligned}
+    \end{equation*}
+    Luego podemos redefinir a los $f_n$'s como
+
+    \[f_n = \frac{\lfloor f(x) \rfloor}{n}\]
+
+    b) Para la parte negariva solo falta cambiar la funci\'on piso $\lfloor \;\cdot\;\rfloor$ 
+    por la funcion techo $\lceil \;\cdotp\;\rceil$
+
+    \[f_n = \frac{\lceil f(x) \rceil}{n}\]
+    \\
+
+    \textbf{Problema 1.23}
+
+    Una medida se dice completa si todo subconjunto de un conjunto de medida cero es medible.
+    Probar que la extenci\'on de Lebesgue de cualquier medida $m$ es completa.
+    \\
+
+    Prueba: Sea $m:\mathscr{S}_m\rightarrow [0,\infty)$ una medida. Sea 
+    $\mu:\mathscr{R}(\mathscr{S}_m)\rightarrow [0,\infty)$ la extensi\'on de $m$ a 
+    $\mathscr{R}(\mathscr{S}_m)$. Consideremos $A\in \mathscr{R}(\mathscr{S}_m)$ tal que 
+    $\mu(A) = 0$ y tomemos $A'\subseteq A$. Entonces, como $\mu^*(A) = \mu(A) = 0$ y 
+    $0 \leq \mu^*(A') \leq \mu^*(A)$ se tiene que $\mu^*(A') = 0$. Ahora tomemos 
+    $\phi \in \mathscr{R}(\mathscr{S}_m)$ elemental, entonces 
+
+    \[\mu^*(A'\triangle \phi) \leq \mu^*(A) = 0 < \epsilon\]
+    Para todo $\epsilon > 0$, por lo tanto $A'\in \mathscr{R}(\mathscr{S}_m)$
+    \newpage
+
+    \textbf{Problema 1.24}
+
+    Demuestre que la funci\'on de Dirichlet
+    \begin{equation*}
+        f(x) = \left\{
+            \begin{aligned}
+                \;1 \;\; \text{si}\;\; x\in \mathbb{Q} \\
+                0 \;\; \text{si}\;\; x\in \mathbb{I}
+            \end{aligned}
+            \right.
+    \end{equation*}
+    No tiene integral de Riemman sobre cualquier intervalo $[a,b]$, pero si tiene integral
+    de Lebesgue sobre cualquier conjunto $A$ medible con valor cero.
+    \\
+
+    $i)$ Si investigamos la integral de Riemman sobre $f$ tenemos que, para cualquier 
+    intervalo $[a,b]$ de $\mathbb{R}$, el supremo de las sumas inferiores es igual a 1, 
+    mientras que el infimo de las sumas superiores es igual a 0, luego $f$ no tiene
+    integral de Riemman.
+    \\
+
+    $ii)$ Tomemos $A\subset \mathbb{R}$ medible. Como $f$ es simple, la integral de Lebesgue
+    esta dada por 
+
+    \[\int_A f\; d\lambda = 1\cdot \lambda(A\cap \mathbb{Q})+0\cdot \lambda(A\cap \mathbb{I})\]
+    Como $A\cap \mathbb{Q}$ es un conjunto de medida cero, tenemos que 
+
+    \[\int_A f\; d\lambda = 0\]
+    \\
+
+    \textbf{Problema 1.25}
+
+    Sea $A = [0,1]$. Encuentre la integral de Lebesgue sobre $A$ de la funci\'on
+    \begin{equation*}
+        f(x) = \left\{
+        \begin{aligned}
+            \frac{1}{q}\;\; \text{si}\;\; x = \frac{p}{q}\in \mathbb{Q} \\
+            1\hspace*{36pt} \text{si}\;\; x\in \mathbb{I}
+        \end{aligned}
+        \right.
+    \end{equation*}
+
+    Soluci\'on: Consideremos la familia $\{A_n\}$ definida como
+
+    \[A_0 := \{x\in A : f(x) = 1\}\;\; \text{y}\;\; A_n := \left\{x\in [0,1] : f(x) = \frac{1}{n}\right\}\]
+    De la definici\'on de $f$, tenemos que 
+
+    \[A_0 = [0,1]\cap \mathbb{I},\;\; A_n = Q_n\cap[0,1]\;\; \text{donde}\;\; Q_n := \left\{\frac{z}{n} : z\in \mathbb{Z}\right\}\]
+    Notemos que la familia $\{A_n\}$ es un partici\'on del intervalo $[0,1]$, entonces podemos
+    calcular la integral de la siguiete manera
+
+    \[\int_A f\; d\lambda = \sum_{n=0}^{\infty} y_n\lambda(A_n) = 1\cdot\lambda(A_0)+\sum_{n=1}^{\infty} \frac{1}{n}\cdot\lambda(A_n)\]
+    A la hora de medir los conjuntos, tenemos que 
+    $\lambda(A_0) = \lambda([0,1]-[0,1]\cap\mathbb{Q}) = \lambda([0,1]) = 1$, mientras que
+    $\lambda(A_n) \leq \lambda(\mathbb{Q}) = 0$ por lo cual $\lambda(A_n) = 0$, finalmente 
+    obtenemos que 
+
+    \[\int_A f\; d\lambda = 1\]
+    \newpage
+
+    \textbf{Problema 1.26}
+
+    Demuestre que 
+    \\
+
+    $i$) Si $f$ es integrable sobre un conjunto $A$ de medida cero, entonces
+
+    \[\int_A f\; d\mu = 0\]
+
+    $ii$) Si $f$ es integrable sobre $A$, entonces 
+
+    \[\int_A f\; d\mu = \int_{A'} f\; d\mu = \]
+    \hspace*{30pt} Para cada $A'\subseteq A$ medible tal que $\mu(A-A') = 0$
+    \\
+
+    $i$) Demostraci\'on: De la continuidad absoluta de la integral tenemos que, dado 
+    $\epsilon > 0$ existe $\delta > 0$ tal que para todo $E\subseteq A$ con $\mu(E) < \delta$
+    se tiene que $|\int_E f\; d\mu| < \epsilon$. En este caso, si tomamos $E = A$, tenemos 
+    que $\mu(E) = 0 < \delta$, luego $|\int_A f\; d\mu| < \epsilon$ para todo $\epsilon > 0$,
+    luego
+
+    \[\int_A f\; d\mu = 0\]
+
+    $ii$) Notemos que $\{A', A-A'\}$ es una partici\'on de conjuntos medibles del conjunto 
+    $A$, luego, aplicando propiedades de la integral y el inciso $(i)$, tenemos que 
+    
+    \[\int_A f\; d\mu = \int_{A'} f\; d\mu+\int_{A-A'} f\; d\mu = \int_{A'} f\; d\mu \]
+    \\
+
+    \textbf{Problema 1.27}
+
+    Demuestre que 
+
+    $i$) Si $f$ es no negativa e integrable sobre $A$, entonces 
+
+    \[\int_A f\; d\mu \geq 0\]
+
+    $ii$) Si $f$ y $g$ son integrables sobre $A$ y $f \leq g$ salvo un conjunto de medida 
+    cero, entonces 
+
+    \[\int_A f\; d\mu \leq \int_A g\; d\mu\]
+
+    $iii$) Si $f$ es integrable sobre $A$ y $m \leq f \leq M$ salvo un conjunto de medida
+    cero, entonces 
+
+    \[m\cdot\mu(A) \leq \int_A f\; d\mu  \leq M\cdot\mu(A)\]
+
+    Demostraci\'on: $i$) $f$ es no negativa  c.t.p. en $A$, es decir, $f(x) geq 0$ c.t.p. en 
+    $A$, luego, por el teorema 3, pagina 297 del Kolmogorov tenemos que 
+
+    \[\int_A f\; d\mu \geq 0\]
+
+    $ii$) $f \leq g$ en $A$ salvo un conjunto de medida cero, luego $0 \leq g-f$ salvo un
+    conjunto de medida cero. Aplicando $(i)$ tenemos que 
+    $0 \leq \int_A (g-f)\;d\mu = \int_A g\;d\mu -\int_A f\;d\mu$ por lo cual
+
+    \[\int_A f\;d\mu \leq \int_A g\; d\mu\]
+
+    $iii$) $m \leq f$ salvo un conjunto de medida cero, entonces por $(ii)$ tenemos que 
+    
+    \[\int_A m\; d\mu \leq \int_A f\; d\mu\]
+    pero $\int_A m\; d\mu = m \int_A 1\cdot d\mu = m\mu(A)$. Similarmente obtenemos el otro
+    lado de la desigualdad para obtener finalmente nuestro resultado.
+
+    \[m\cdot\mu(A) \leq \int_A f\; d\mu  \leq M\cdot\mu(A)\]
+    \\
+
+    \textbf{Problema 1.28}
+
+    Demuestre que $\int_A f\;d\mu$ existe si y solo si $\int_A |f|\;d\mu$ existe.
+    \\
+
+    Demostraci\'on: Supongamos que $|f|$ es integrable sobre $A$. Como $f leq |f|$, tenemos,
+    por el teorema 3, pagina 297 del Kolmogorov, que $f$ es integrable sobre $A$. 
+
+    Ahora supongamos que $f$ es integrable, entonces podemos analizar 2 casos
+    \\
+
+    $i$) $f$ es simple. Sean $\{y_n\}$ los vaores de $f$ y $A_n = f^{-1}(y_n)$ entonces la 
+    serie $\sum_n y_n\mu(A_n)$, converge absolutamente, esto es $\sum_n |y_n|\mu(A_n)$ 
+    converge. Pero desde que $\{|y_n|\}$ son los valores de $|f|$, se tiene que $|f|$
+    tambien es integrable.
+    \\
+    
+    $ii$) $f$ no es simple, entonces existe $\{f_n\}$ sucesi\'on de funciones simples 
+    que convergen uniformemente a $f$ en $A$, y ademas 
+
+    \[\int_A f\;d\mu = \lim_{n\rightarrow \infty} \int_A f_n\;d\mu\]
+    Por $(i)$, para cada $n\in \mathbb{N}\; \int_A f_n\; d\mu$ existe, luego 
+    $\int_A |f_n|\; d\mu$ tambi\'en existe. Adem\'as como $f_n\rightarrow f$ se tiene que 
+    $|f_n|\rightarrow |f|$, de donde concluimos que 
+
+    \[\lim_{n\rightarrow \infty} \int_A |f_n|\; d\mu = \int_A f\; d\mu\]
+    \newpage
+
+    \section{Segundo Parcial.}
+
+    \textbf{Problema 2.1}  
+
+    Sea $(X,\mathscr{A})$ un espacio medible y sea $\phi : \mathscr{A}\longrightarrow (-\infty,+\infty)$ 
+    una carga. Pruebe que existe una constante $M>0$ tal que $|\phi (E)|\leq M$ para todo $E\in \mathscr{A}$. \\ \\
+    
+    Soluci\'on:
+    $\phi$ es una carga que toma valores en $(-\infty,+\infty)$, esto implica que $-\infty < \phi (E) < +\infty$
+    para todo $E\in \mathscr{A}$. Tomemos una descomposici\'on de Hahn $(X^+,X^-)$, y
+    consideremos las variaciones $\phi^+$ y $\phi^-$; dado $E\in \mathscr{A}$ tenemos que 
+
+    \[\phi^+(E)=\phi(E\cap X^+) <\infty \; \& \; \phi^-(E)=\phi(E\cap X^-) <\infty\]
+    de donde se sigue que 
+     
+    \[|\phi|(E)<\infty \; \mathrm{para todo} \; E\in \mathscr{A}\]
+    Ahora, considere $M=|\phi|(X)$ y nuevamente tomemos $E\in \mathscr{A}$, vemos que 
+
+    \[|\phi (E)|=|\phi^+(E)-\phi^-(E)| \leq |\phi^+(E)+\phi^-(E)|=|\phi|(E) \leq |\phi|(E)+|\phi|(X-E)=|\phi|(X)\]
+    As\'i, como $E$ fue arbitrario, se tiene el resultado.
+
+    \[|\phi (E)| \leq M\]
+    \\
+
+    \textbf{Problema 2.2}
+
+    De un ejemplo de 2 descomposiciones de Hahn de un espacio $X$. \\ 
+    
+    Soluci\'on: \\
+    Considere a $X=[-1,1]$ con el algebra de borel y la carga $\phi$ definida por 
+    \[\phi (A):=\int_Ax\:dx\] 
+    entonces podemos definir las descomposici\'ones 
+    \[X_1^+=[0,1],\;X_1^-=[-1,0) \;\; \& \;\; X_2^+=[0,1),\;X_2^-=[-1,0]\] 
+    \\
+
+    \textbf{Problema 2.3}
+
+    Pruebe que la carga $\phi$ es identicamente cero si es absolutamente continua y singular
+    respecto a una medida $\mu$. \\ 
+
+    Soluci\'on:
+    Denotemos como $X$ al especio y como $\mathscr{A}$ su algebra. Por definici\'on de carga singular existe un $A\subseteq X$ tal que
+    \[\mu (A)=0 \; \& \; \phi (B)=0 \; \mathrm{para todo} \; B\subseteq X-A, \; B\in \mathscr{A}\]
+    Tambi\'en tenemos que $\mu (D)=0$ para todo $D\subseteq A \; \mathrm{con }\; D\in \mathscr{A}$, luego $\phi (D)=0$ para todo $D\subseteq A,\: D\in \mathscr{A}$. 
+    Ahora consideremos a $D\in \mathscr{A}$ arbitrario, por lo dicho anteriormente se tiene
+    \[\phi (D)=\phi ((D\cap (X-A)) \cup (D\cap A))=\phi (D\cap (X-A))+\phi (D\cap A)=0+0=0\]
+    $\phi$ es identicamente cero. \\ \\
+
+    \textbf{Problema 2.4} \\
+
+    Pruebe que: \\
+    a) Toda carga absolutamente continua es continua. \\
+    b) Toda carga discreta es singular. 
+    \\ \\
+    Soluci\'on: Trabajaremos en un espacio de medible (X,$\mathscr{A},\mu$). 
+    \\ \\
+    a) La definici\'on una carga $\phi$ absolutamente continua nos dice que dado 
+    $A\in \mathscr{A}$, si $\mu (A)=0$ entonces $\phi (A)=0$, esto en particular se cumple para 
+    conjuntos de un solo elemento de medida cero, por lo tanto $\phi$ es continua. \\ \\
+    b) Si la carga $\phi$ es discreta, entonces esta concentrada en un conjunto finito o numerable de medida cero. 
+    En particular esta concentrada en un conjunto de medida cero, luego es singular.\\ \\ 
+
+    \textbf{Problema 2.5} \\
+
+    Pruebe que si una carga $\phi$ es absolutamente continua (respecto a una medida $\mu$),
+    tambien lo seran sus variaciones positiva, negativa y total.
+    \\ \\
+    Soluci\'on: Consideremos el espacio de medida $(X,\mathscr{A},\mu)$. Sea $(X^+,X^-)$ la 
+    descomposici\'on de Hahn que determina las variaciones positiva y negativa. Tomemos 
+    $A\in \mathscr{A} \; \mathrm{tal que} \; \mu (A)=0$ entonces $\mu (A\cap X^+)=0$ y 
+    $\mu (A\cap X^-)=0$, luego
+
+    \begin{gather*}
+        \phi^+(A)=\phi (A\cap X^+)=0 \\
+        \phi^-(A)=\phi (A\cap X^-)=0 \\
+        |\phi|(A)=\phi^+(A)+\phi^-(A)=0
+    \end{gather*}
+    Como A fue un conjunto de medida cero arbitrario, tenemos que las variaciones positiva,
+    negativa y total tambi\'en son absolutamente continuas.    
+    \\ \\
+
+    \textbf{Problema 2.6}
+
+    Pruebe que el producto directo de dos anillos (o $\sigma-$anillos) no necesariamente es un 
+    anillo (o $\sigma-$anillo).
+    \\ \\
+    Soluci\'on:
+    Observemos al producto directo del \'algebra de Borel con sigo misma $\mathscr{B}(\mathbb{R}) \times \mathscr{B}(\mathbb{R})$. 
+    Veremos que este producto no es cerrado ante complementos. \\
+    Considere el cuadrado unitario $[0,1]\times [0,1]$. Desde que $[0,1]\in \mathscr{B}(\mathbb{R})$,
+    el cuadrado unitario esta en el producto directo de las \'algebras. Ahora supongamos que podemos
+    escribir $([0,1]\times [0,1])^C=A\times B$, con $A,B\in \mathscr{B}(\mathbb{R})$. Entonces, para  
+      $(x,\frac{1}{2})\in A\times \{\frac{1}{2}\}$ se tiene 
+
+    \[\left(x,\frac{1}{2}\right)\in ([0,1]\times [0,1])^C \; \Longleftrightarrow \; x\in [0,1]^C\]
+    \\
+    luego, por nuestra suposici\'on, necesariamente $A\subseteq [0,1]^C$. Pero entonces para todo $y\in [0,1]^C$ tenemos
+
+    \[\left(\frac{1}{2},y\right)\in ([0,1]\times [0,1])^C \; \mathrm{pero} \; \left(\frac{1}{2},y\right)\notin A\times B \]
+    \\
+    luego ese complemento no se puede escribir como el producto cartesiano de los elementos del 
+    producto directo, por lo tanto $\mathscr{B}(\mathbb{R}) \times \mathscr{B}(\mathbb{R})$ no 
+    es un anillo. \\ \\
+
+    \textbf{Problema 2.7} \\
+
+    Sea $A=[-1,1]\times [-1,1]$ y sea 
+
+    \[f(x,y)=\frac{xy}{(x^2+y^2)^2}\]
+
+    Pruebe que \\ \\
+    a) Las integrales iteradas de f existen y son iguales. \\
+    b) La doble integral de f no existe.
+    \\ \\
+    Soluci\'on: 
+    \\ \\
+    a) Primero evaluemos a $\int_{-1}^{1}f(x,y)\:dx$. Si $y=0$, entonces $f(x,y)=0$ para todo 
+    $x\in [-1,1]-\{0\}$, luego $\int_{-1}^{1}f(x,y)\:dx=0$. Si $y\neq 0$ entonces
+
+    \[\int_{-1}^{1}f(x,y)\:dx=\int_{-1}^{1}\frac{xy}{(x^2+y^2)^2}\:dx=y\int_{-1}^{1}\frac{x}{(x^2+y^2)^2}\:dx\]
+    Note que la funci\'on que esta dentro de la integral es una funci\'on impar que esta siendo
+    integrada sobre un intervalo simetrico al cero, luego $\int_{-1}^{1}f(x,y)\:dx=0$. Por lo 
+    anterior $\int_{-1}^{1}f(x,y)\:dx=0$ para todo $y\in [-1,1]$.
+    \\ 
+    El mismo tratamiento se aplica para demostrar que $\int_{-1}^{1}f(x,y)\:dy=0$ para todo $x\in [-1,1]$.
+    Con esto tenemos que 
+
+    \[\int_{-1}^{1}\left(\int_{-1}^{1}f(x,y)\:dx\right)dy=0=\int_{-1}^{1}\left(\int_{-1}^{1}f(x,y)\:dy\right)dx\]
+    con lo cual obtenemos el primer resultado.
+    \\ \\
+    b) Recordemos que una funci\'on $f$ es integrable si y s\'olo si $|f|$ es integrable. 
+    Supongamos que $\int _{-1}^{1}\int_{-1}^{1}|f(x,y)|\;dx\,dy$ existe. Como la funci\'on a 
+    integrar es no negativa en todo el dominio de integraci\'on, la desigualdad
+
+    \[\int_A |f| \geq \int_B |f|\]
+    
+    ($A=[1,-1]\times [1,-1]$), se cumple para cualquier $B\subseteq A$ donde $|f|$ sea integrable.
+    Prestemosle atenci\'on a $[\epsilon,1]\times[\epsilon,1] \; \mathrm{con} \; 0<\epsilon \leq 1$,
+    entonces, con las sustituciones 
+
+    $$\theta_{1}=arcSin(\frac{\epsilon}{\sqrt{1+\epsilon^2}}) \;\; \& \;\; \theta_{2}=arcSin(\frac{1}{\sqrt{1+\epsilon^2}})$$
+    y cambiando a coordenadas polares tenemos que 
+
+    \begin{gather*}
+        \int _{-1}^{1}\int_{-1}^{1}|f(x,y)|\;dx\,dy > \int _{\epsilon}^{1}\int_{\epsilon}^{1}|f(x,y)|\;dx\,dy>\int_{\epsilon}^{1}\int_{\epsilon}^{1}\frac{xy}{(x^2+y^2)^2}\:dx =\\
+        =\int_{\sqrt{2}\epsilon}^{1} \int_{\theta_1}^{\theta_2} \frac{\sin\theta\cos\theta }{r}\:d\theta\,dr=
+        \int_{\sqrt{2}\epsilon}^{1} \frac{dr}{r} \int_{\theta_1}^{\theta_2} \sin \theta \cos \theta\:d\theta = 
+        \left(\sin^2 \theta_2-\sin^2 \theta_1\right)\int_{\sqrt{2}\epsilon}^{1} \frac{dr}{r} = \\
+        =\left(\frac{1-\epsilon^2}{1+\epsilon^2}\right)(\ln(1)-\ln(\sqrt{2}\epsilon))=\left(\frac{1-\epsilon^2}{1+\epsilon^2}\right)\ln\left(\frac{1}{\sqrt{2}\epsilon}\right)
+    \end{gather*}
+    Como vemos, la ultima funcion tiende a infinito cuando $\epsilon \rightarrow 0$, luego nuestra
+    integral no es acotada contradiciendo nuestra suposici\'on, as\'i $\int_{-1}^1 \int_{-1}^1 |f(x,y)|\:dx\,dy$ 
+    no existe, por lo tanto $\int_{-1}^1 \int_{-1}^1 f(x,y)\:dx\,dy$ tampoco.
+    \\ \\
+
+    \textbf{Problema 2.8} \\
+
+    Sea $A=[0,1]\times [0,1]$ y sea
+    
+    \begin{equation*}
+        f=\left\{
+            \begin{aligned}
+                2^{2n} \;\;if\;\;    & x\in \left[\frac{1}{2^n},\frac{1}{2^{n-1}}\right),\;\; y\in \left[\frac{1}{2^n},\frac{1}{2^{n-1}}\right) \\
+                -2^{2n+1} \;\;if\;\; & x\in \left[\frac{1}{2^{n+1}},\frac{1}{2^{n}}\right),\;\; y\in \left[\frac{1}{2^n},\frac{1}{2^{n-1}}\right) \\
+                0   \;\;\;\;\;\;\;\; & \mathrm{en \; otro \; caso.}
+            \end{aligned}
+        \right.
+    \end{equation*}
+    \\
+    Muestre que las integrales iteradas existen, pero no son iguales.
+    \\ \\
+    Primero notemos que $\left\{\left[\frac{1}{2^{n}},\frac{1}{2^{n-1}}\right)\right\}$ es una 
+    partici\'on para $(0,1)$, tambien notemos que \\ 
+    $\int_Af=\int_{int(A)}f$. 
+    \\ \\
+    Dado $y\in (0,1)$, existe $k\in \mathbb{N}$ tal que 
+    $y\in \left[\frac{1}{2^{k}},\frac{1}{2^{k-1}}\right)$, luego 
+
+    \begin{gather*}
+        \int_0^1f(x,y)\:dx = 
+        \sum_{n=1}^{\infty}\int_{\frac{1}{2^{n}}}^{\frac{1}{2^{n-1}}}f(x,y)\:dx =
+        \int_{\frac{1}{2^{k}}}^{\frac{1}{2^{k-1}}}2^{2k}\:dx - \int_{\frac{1}{2^{k+1}}}^{\frac{1}{2^{k}}}2^{2k+1}\:dx =  \\
+        2^{2k}\left(\frac{1}{2^{k-1}}-\frac{1}{2^{k}}\right)-2^{2k+1}\left(\frac{1}{2^{k}}-\frac{1}{2^{k+1}}\right) =
+        2^{k+1}-2^k-2^{k+1}+2^k = 0
+    \end{gather*}
+    \\ 
+    Luego tenemos que 
+
+    \[\int_0^1\left(\int_0^1 f(x,y)\:dx\right)\:dy =\int_0^1 0\:dy = 0\]
+    \\ \\
+    Por otro lado, si $x\in (0,1)$ entonces $x\in\left[\frac{1}{2^{k}},\frac{1}{2^{k-1}}\right)$
+    para algun $k\in \mathbb{N}$. Si $k=1$
+
+    \begin{gather*}
+        \int_0^1f(x,y)\:dy = 
+        \sum_{n=1}^{\infty}\int_{\frac{1}{2^{n}}}^{\frac{1}{2^{n-1}}}f(x,y)\:dy =
+        \int_{\frac{1}{2}}^1 2^2\:dy =
+        4(1-\frac{1}{2})=2
+    \end{gather*}
+    \\
+    Si $k>1$
+
+    \begin{gather*}
+        \int_0^1f(x,y)\:dy = 
+        \sum_{n=1}^{\infty}\int_{\frac{1}{2^{n}}}^{\frac{1}{2^{n-1}}}f(x,y)\:dy = 
+        \int_{\frac{1}{2^{k}}}^{\frac{1}{2^{k-1}}}2^{2k}\:dy + \int_{\frac{1}{2^{k-1}}}^{\frac{1}{2^{(k-1)-1}}}2^{2(k-1)+1}\:dy = \\
+        \int_{\frac{1}{2^{k}}}^{\frac{1}{2^{k-1}}}2^{2k}\:dy - \int_{\frac{1}{2^{k-1}}}^{\frac{1}{2^{k-2}}}2^{2k-1}\:dy =
+        2^{2k}\left(\frac{1}{2^{k-1}}-\frac{1}{2^{k}}\right) - 2^{2k-1}\left(\frac{1}{2^{k-2}}-\frac{1}{2^{k-1}}\right) = \\
+        2^{k+1}-2^k-2^{k+1}+2^k = 0
+    \end{gather*}
+    \\
+    Con lo anterior obtenemos 
+
+    \[\int_0^1\left(\int_0^1 f(x,y)\:dy\right)\:dx = \int_{\frac{1}{2}}^1 2\:dx = 1\]
+    Que es el resultado deseado.
+    \\ \\
+
+    \textbf{Problema 2.9} \\
+
+    Muestre que la existencia de cualquiera de las integrales
+
+    \[\int_X \left(\int_{A_x}|f(x,y)|\:d\mu_{y}\right)d\mu_x, \; \; \int_Y \left(\int_{A_y}|f(x,y)|\:d\mu_{x}\right)d\mu_y\]
+    \\
+    implica la existencia de la integral de $f$ y la igualdad de las integrales iteradas.
+    \\ \\
+    Soluci\'on:
+    Sea $A$ el dominio de integraci\'on, supongamos que la primera de las integrales existe y 
+    llamemosle $M$ a su valor. Para cada $n\in \mathbb{N}$ defina la funci\'on 
+
+    \[f_n(x,y):=\min\{|f(x,y)|,n\}\]
+    \\
+    Entonces cada una de estas funciones es medible y acotada (por $0$ y $n$), luego cada una es integrable. 
+    Por su construcci\'on, cada un de estas funciones cumple con $f_n(x,y) \leq f(x,y)$, para 
+    todo $(x,y)\in A$, luego, con el teorema de Fubini tenemos
+
+    \[\int_Af_n(x,y)\:d\mu=\int_X \left(\int_{A_x}f_n(x,y)\:d\mu_{y}\right)d\mu_x \leq M\]
+    \\
+    Tambi\'en notemos que $\{f_n\}$  es una sucesi\'on de  funciones no  decresientes que satisface \\
+    $\lim_nf(x,y)=|f(x,y)|$ para todo $(x,y)\in A$; el teorema de Levi implica que $|f|$ es finito en casi 
+    todas partes de $A$ y que es integrable sobre A, luego $f$ es integrable sobre $A$. Ahora, 
+    usando el teorema de Fubini se obtiene
+
+    \[\int_X \left(\int_{A_x}f(x,y)\:d\mu_{y}\right)d\mu_x=\int_Af(x,y)\:d\mu=\int_Y \left(\int_{A_y}f(x,y)\:d\mu_{x}\right)d\mu_y\]
+    \\
+    Las integrales iteradas son iguales.
+    \\ \\
+
+    \textbf{Problema 2.10}\\
+
+    Muestre que el teorema de Fubini se sigue cumpliendo para medidas $\sigma$-aditivas.
+    \\ \\
+    Soluci\'on:
+    Sean $(X,\mathscr{A},\mu)$, $(Y,\mathscr{B},\nu)$ espacios $\sigma-$aditivos con las medidas
+    tales como se establecieron el el teorema de Fubini. Entonces se puede escribir 
+
+    \[X=\bigcup_{n=1}^{\infty}A_n \; \; \& \; \; Y=\bigcup_{n=1}^{\infty}B_n\]
+    \\
+    Con $\{A_n\}$ una sucesi\'on de conjuntos disjuntos tales que $\forall \;n\in \mathbb{N}, \; A_n\in \mathscr{A} \;\; \& \;\; \mu(A_n)<\infty$,
+    de igual manera para $\{B_n\}$. Luego tenemos la identidad
+
+    \[X\times Y=\bigcup_{n=1}^{\infty}\bigcup_{k=1}^{\infty}A_n\times B_k\]
+    \\
+    Como $\mu \times \nu (A_n \times B_k)=\mu(A_n)\nu(B_k) < \infty$ se cumple para todo $n,k\in \mathbb{N}$
+    y por el echo de que conjuntos numerables es numerable, tenemos  que $\mu \times \nu$ es 
+    $\sigma-$finita. Por lo anterior, considere $\{C_n\}$ sucesi\'on de conjuntos disjuntos tales que
+    para todo $n\in \mathbb{N} \; \mu \times \nu (C_n)<\infty$ y $X\times Y=\bigcup_{n=1}^{\infty}C_n$,
+    Entonces podemos construir la sucesi\'on $\{D_n\}$ tomando $D_n=\cup_{k=1}^n C_n$ para cada $n\in \mathbb{N}$.
+    $\{D_n\}$ es una sucesi\'on creciente donde cada miembro tiene medida finita, luego el 
+    teorema de Fubini se cumple para cada $D_n$. Utilizando el teorema de Levi que podemos escribir
+
+    \[\int_A f = \lim_{n\rightarrow \infty} \int_{A\cap D_n} f = \lim_{n\rightarrow \infty} \int_{(A\cap D_n)_x} \left(\int_{(A\cap D_n)_y} f \: dx\right) \: dy\]
+    \\
+    De donde 
+
+    \begin{gather*}
+        \int_{A_x}\left(\int_{A_y}f\:dx\right)\:dy = \\ 
+        \lim_{n\rightarrow \infty} \int_{(A\cap D_n)_x} \left(\int_{(A\cap D_n)_y} f \: dx\right) \: dy = \lim_{n\rightarrow \infty} \int_{(A\cap D_n)_y} \left(\int_{(A\cap D_n)_x} f \: dy\right) \: dx =\\
+        =\int_{A_y}\left(\int_{A_x}f\:dy\right)\:dx 
+    \end{gather*}
+    \\
+    Finalmente obtenemos el resultado deseado.
+
+    \[\int_{A_x}\left(\int_{A_y}f\:dx\right)\:dy = \int_A f = \int_{A_y}\left(\int_{A_x}f\:dy\right)\:dx\]
+    \newpage
+
+    \section{Tercer Parcial.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \textbf{Problema 3.1}
+
+    Sea $\Phi$ una funci\'on de variaciones acotadas con dos diferentes representaciones
+    $\Phi = v-g,\; \Phi = v'-g'$ en terminos de funciones no decrecientes $v,g,v'$ y 
+    $g'$ (de un ejemplo). Pruebe que
+
+    \[\int_a^b f\;dv - \int_a^b f\;dg = \int_a^b f\;dv' - \int_a^b f\;dg'\]
+    \\
+
+    Prueba: Para el ejemplo, basta con considerar a una funcion $h$ de variaciones acotadas
+    no decreciente, entonces 
+
+    \[\Phi = v-g = v-g+(h-h) = (v+h)-(g+h)\]
+    Ahora, pasando a la prueba, como $v,g,v',g'$ son funciones no decresientes continuas
+    por la izquierda, podemos considerar las medidas de Lebesgue-Stieltjes 
+    $\mu_v,\mu_g,\mu_{v'},\mu_{g'}$. 
+    Ahora, definamos las medidas 
+    $\mu_1 := \mu_v+\mu_{g'}$ y $\mu_2 := \mu_g+\mu_{v'}$ y consideremos el conjunto 
+    
+    \[S := \{A\in \mathscr{B}([a,b)) : \mu_1(A) = \mu_2(A)\}\]
+    Observemos que 
+    \begin{equation*}
+        \begin{aligned}
+            &\mu_v([c,d))-\mu_g([c,d)) & = v(d)-v(c)-g(d)+g(c) = (v-g)(d)-(v-g)(c) \\
+            & & = \Phi(d)-\Phi(c) = (v'-g')(d)-(v'-g')(c) \hspace*{54pt}\\
+            & & = \mu_{v'}([c,d))-\mu_{g'}([c,d)) \hspace*{147pt}
+        \end{aligned}
+    \end{equation*}
+    De donde obtenemos que $\mu_1([c,d)) = \mu_2([c,d))$. En particular $[a,b)\in S$.
+    Ahora tomemos $A\in S$, entonces 
+
+    \[\mu_1([a,b)-A) = \mu_1([a,b))-\mu_1(A) = \mu_2([a,b))-\mu_2(A) = \mu_1([a,b)-A)\]
+    De donde $[a,b)-A\in S$. Si $\{A_n\}$ es una sucesi\'on disjunta sobre $S$, entonces
+
+    \[\mu_1(\cup_nA_n) = \sum_n\mu_1(A_n) = \sum_n\mu_2(A_n) = \mu_2(\cup_nA_n) \]
+    Luego $\cup_nA_n\in S$. Hemos demostrado que $S$ es una $\sigma$-\'algebra sobre 
+    $[a,b)$ por lo cual $\mathscr{B}([a,b))\subseteq S$. Como ya tenemos la otra 
+    contensi\'on, se concluye que 
+
+    \[\mathscr{B}([a,b)) = S\; \ldots\; (1)\]
+    Ahora consideremos a la funcion $f$. Si $f = \chi_A$ para algun 
+    $A\in \mathscr{B}([a,b))$, por (1) tenemos que 
+    \begin{equation*}
+        \begin{aligned}
+            & \int_a^b f\;d\mu_v+\int_a^b f\;d\mu_{g'} & = \mu_v(A)+\mu_{g'}(A) = \mu_1(A) = \mu_2(A) \hspace*{35pt}&\\
+            & & = \mu_g(A)+\mu_{v'}(A) = \int_a^b f\;d\mu_g+\int_a^b f\;d\mu_{v'}
+        \end{aligned}
+    \end{equation*}
+    De donde se sigue que, para funcines caracteristicas, 
+    $\int f\;d\mu_v-\int f\;d\mu_g = \int f\;d\mu_{v'}-\int f\;d\mu_{g'}$. 
+    El resultado se mantiene para funciones simples porque estas son combinaciones lineales
+    de funciones caracteristicas. Ahora tomemos $f$ como funci\'on medible, entonces existe 
+    $\{f_n\}$ sucesi\'on de funciones simples tal que $\lim_nf_n = f$. Luego, por el 
+    teorema de convergencia monotona 
+    \begin{equation*}
+        \begin{aligned}
+            & \int_a^bf\;d\mu_v-\int_a^bf\;d\mu_g  & = \lim_{n\rightarrow \infty}\int_a^bf_n\;d\mu_v-\lim_{n\rightarrow \infty}\int_a^bf_n\;d\mu_g \hspace*{127pt} \\
+            & & = \lim_{n\rightarrow \infty} \left(\int_a^bf_n\;d\mu_v-\int_a^bf_n\;d\mu_g\right) \hspace*{134pt} \\
+            & & = \lim_{n\rightarrow \infty} \left(\int_a^bf_n\;d\mu_{v'}-\int_a^bf_n\;d\mu_{g'}\right) = \int_a^bf\;d\mu_{v'}-\int_a^bf\;d\mu_{g'}
+        \end{aligned}
+    \end{equation*}
+    \\ 
+
+    \textbf{Problema 3.2}
+
+    Encuentre la media y la varianza de la variable aleatoria $\xi$ con densidad de 
+    probabilidad
+
+    \[p(x) = \frac{1}{2}e^{-|x|}\;\;\;\; -\infty < x < \infty\]
+    
+    Soluci\'on: La media de $\xi$ esta dada por la integral
+
+    \[E\xi = \int_{-\infty}^{\infty} xp(x)\;dx = \int_{-\infty}^{\infty} \frac{1}{2}xe^{-|x|}\;dx\]
+    El argumento de la integral $v(x) = 1/2xe^{-|x|}$ es una funci\'on impar ya que 
+
+    \[v(-x) = \frac{1}{2}(-x)e^{-|-x|} = -\frac{1}{2}xe^{-|x|} = -v(x)\]
+    Por lo tanto $E\xi = 0$. Para la varianza tenemos que 
+
+    \[D\xi = \int_{-\infty}^{\infty} (x-E\xi)^2p(x)\;dx = \int_{-\infty}^{\infty}\frac{1}{2}x^2e^{-|x|}\;dx\]
+    La funci\'on $u(x) = \frac{1}{2}x^2e^{-|x|}$ es par porque
+
+    \[u(-x) = \frac{1}{2}(-x)^2e^{-|-x|} = \frac{1}{2}x^2e^{-|x|} = u(x)\]
+    Por lo tanto 
+    \begin{equation*}
+        \begin{aligned}
+            & D\xi & = \int_{-\infty}^{\infty} \frac{1}{2}x^2e^{-|x|}\;dx = \int_0^{\infty}x^2e^{-x}\;dx \\
+            & & = \lim_{x\rightarrow \infty} (2-(x^2+2x+2)e^{-x}) = 2
+        \end{aligned}
+    \end{equation*}
+    \newpage
+
+    \textbf{Problema 3.3}
+
+    Sea $\xi$ una variable aleatoria con densidad de probabilidad
+
+    \[p(x) = \frac{1}{\pi(1+x^2)}\;\;\; -\infty < x < \infty\]
+    Pruebe que $E\xi$ y $D\xi$ no existen.
+    \\
+
+    Soluci\'on: Intentemos calcular $E\xi$. Haciendo el cambio de variable $u = 1+x^2$
+    tenemos que 
+
+    \[\frac{1}{\pi}\int \frac{x}{1+x^2}\;dx = \frac{1}{2\pi}\int \frac{du}{u} = \frac{1}{2\pi} \ln u +c= \frac{1}{2\pi} \ln (1+x^2)+c\]
+    Entonces 
+    \[E\xi = \lim_{x\rightarrow \infty}\frac{1}{2\pi} \ln (1+x^2)-\lim_{x\rightarrow -\infty}\frac{1}{2\pi} \ln (1+x^2) = +\infty-\infty\]
+    Que no esta definido, luego $E\xi$ no existe. Como consecuencia se tiene que $D\xi$ 
+    tampoco existe.
+    \\ \\ 
+
+    \textbf{Problema 3.5}
+
+    Pruebe que si $f$ es continua en $[a,b]$, la integral de Riemann-Stieltjes
+
+    \[\int_a^b f\;d\Phi\]
+    no depende de los valores que toma $\Phi$ en sus puntos de discontinuidad en $(a,b)$.
+    \\
+
+    Prueba: Como $\Phi$ es continua por la izquierda en el cerrado $[a,b]$, el 
+    conjunto de discontinuidades  de $\Phi$ es a lo mas numerable. Llamemos a dicho 
+    conjunto $D$. Tomemos 
+    $a\in \mathbb{R}$ y definamos la funci\'on $\Phi_a:[a,b]\rightarrow \mathbb{R}$ como
+    \begin{equation*}
+        \Phi_a(x) := \left\{
+            \begin{aligned}
+               \Phi(x) \text{si}\;\; x\in [a,b]-D \\
+               a \hspace*{48pt} \text{si}\;\; x\in D 
+            \end{aligned}
+        \right.
+    \end{equation*}
+    Ahora definamos $u(x) = \Phi(x)-\Phi_a(x)$. Entonces
+    \begin{equation*}
+        u(x) := \left\{
+            \begin{aligned}
+               \Phi(x)-a \hspace*{28pt} \text{si}\;\; D \\
+               0\;\; \text{si}\;\; x\in [a,b]-D 
+            \end{aligned}
+        \right.
+    \end{equation*}
+    $u(x)$ es de variaciones acotadas, entonces podemos hablar de su integral de 
+    Riemann-Stieltjes. Por la formula (13) pagina 367 del Kolmogorov se tiene que
+
+    \[\int_a^b f\;du = \int_a^b f\;d\Phi-\int_a^b f\;d\Phi_a\]
+    Adem\'as, el conjunto $B := \{x\in [a,b] : u(x) \neq 0\} \subseteq D$, por lo cual
+    $B$ es a lo mas numerable. Se sigue del teorema 3 pagina 369 del Kolmogorov que 
+
+    \[\int_a^b f\;du = 0\]
+    Por lo tanto 
+
+    \[\int_a^b f\;d\Phi = \int_a^b f\;d\Phi_a\]
+    Como $a$ fue arbitrario, se sigue el resultado.
+    \\ \\
+
+    \textbf{Problema 3.6}
+
+    Sea $\{\Phi_n\}$ una sucesi\'on igual a la del teorema 4 pagina 370 del Kolmogorov, y 
+    sea $\{f_n\}$ una sucesi\'on de funciones continuas en $[a,b]$ que convergen 
+    uniformemente a $f$. Pruebe que 
+
+    \[\lim_{n\rightarrow \infty} \int_a^b f_n\;d\Phi_n = \int_a^b f\;d\Phi\]
+    \\
+
+    Prueba: Observemos los siguientes calculos
+    \begin{equation*}
+        \begin{aligned}
+            &\left| \int_a^bf_n\;d\Phi_n-\int_a^bf\;d\Phi \right| & = \left| \int_a^bf_n\;d\Phi_n-\int_a^bf\;d\Phi_n+\int_a^bf\;d\Phi_n-\int_a^bf\;d\Phi \right| \hspace*{36pt} \\
+            & & = \left| \int_a^b(f_n-f)\;d\Phi_n+\int_a^bf\;d(\Phi_n-\Phi) \right| \hspace*{96pt} \\
+            & & \leq \left| \int_a^b(f_n-f)\;d\Phi_n\right|+\left|\int_a^bf\;d(\Phi_n-\Phi) \right| \hspace*{88pt} \\
+            & & \leq \max_{x\in [a,b]}\{ |(f_n-f)(x)|\} V_a^b(\Phi_n)+\max_{x\in [a,b]}\{ |f(x)|\} V_a^b(\Phi_n-\Phi)
+        \end{aligned}
+    \end{equation*}
+    Las hipotesis nos dicen que $V_a^b(\Phi_n-\Phi)\rightarrow 0,\; |f_n-f|\rightarrow 0$
+    ambas cuando $n\rightarrow \infty$. Como consecuencia
+
+    \[\lim_{n\rightarrow \infty} \left| \int_a^bf_n\;d\Phi_n-\int_a^bf\;d\Phi \right| = 0\]
+    De donde se sigue nuestro resultado.
+    \\ \\
+ 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \textbf{Problema 3.7}
+
+    Sea $p\in [1,\infty )$. Determine cu\'ando la desigualdad de Minkowski se convierte 
+    en una igualdad.
+    \\
+
+    Respuesta: Podemos analizar este problema separandolo en dos casos.
+    Nota: En esta demostraci\'on usaremos el siguiente resultado: Sean 
+    $u,v:X\rightarrow [0,\infty)$ son funciones integralbles sobre $X$ tales que $u\leq v$
+    salvo una conjunto de medida cero. Si $\int_X u\;d\mu = \int_X v\;d\mu$, entonces 
+    $u = v$ salvo un conjunto de medidad cero.
+    \\
+
+    Caso $p = 1$: Las funciones $|f+g|$ y $|f|+|g|$ son no negativas en todo su dominio. 
+    Adem\'as tenemos que    
+
+    \[\int_X |f+g|\; d\mu = \int_X |f|\; d\mu+\int_X |g|\; d\mu\;\Leftrightarrow\;\int_X |f+g|\; d\mu = \int_X(|f|+|g|)\;d\mu\]
+    De la ecuaci\'on del lado derecho obtenemos que la igualdad de las integrales ocurre 
+    si y solo si $f = g$ salvo en un conjunto de medida cero.
+    \\
+
+    Caso $1 < p < \infty$: Para analizar este caso, primero veremos cuando se cumple la 
+    igualdad en la desigualdad de Holder.
+
+    Sean $f\in L^p$ y $g\in L^q$ con $1/p+1/q = 1$. Recordemos que la desigualdad de Holder
+    tiene la forma $\|fg\|_1 \leq \|f\|_p\|g\|_p$. Si $\|f\|_p\|g\|_p = 0$, entonces 
+    $0 \leq \|fg\|_1 \leq \|f\|_p\|g\|_p = 0$, luego ocurre la igualdad. Supongamos que 
+    $\|f\|_p\|g\|_p > 0$. Sabemos que la desigualdad de Young es equivalente a 
+
+    \[\exp\left(\frac{1}{p}p\ln a+\frac{1}{q}q\ln b\right) \leq \frac{1}{p}\exp(p\ln a)+\frac{1}{q}\exp(q\ln b)\;\cdots\;(1)\]
+    Como la funci\'on $\exp$ es estrictamente convexa, tenemos que la igualdad ocurre 
+    si y solamente si $x = y$, o equivalente, $a^p = b^q$. Por otro lado, otra consecuencia 
+    de la convexidad de la funci\'on $\exp$ es que la desigualdad
+    
+    \[x^ty^{1-t} \leq tx+(1-t)y\]
+    Se cumple para todo $x,y\in \mathbb{R}$ y $t\in [0,1]$. Si aplicamos las sustituciones 
+    $x = |f|^p/\|f\|_p^p,\; y = |g|^q/\|g\|_q^q$ y $t = 1/p$ tenemos que 
+
+    \[\frac{|f|}{\|f\|_p}\cdot\frac{|g|}{\|g\|_q} \leq \frac{1}{p}\left(\frac{|f|}{\|f\|_p}\right)^p+\frac{1}{q}\left(\frac{|g|}{\|g\|_q}\right)^q\;\cdots \; (2)\]
+    Integrando ambos lados de la desigualdad sobre de $X$ se tiene que 
+
+    \[\int_X \frac{|f|}{\|f\|_p}\cdot\frac{|g|}{\|g\|_q}\;d\mu  \leq \frac{1}{p}\int_X \left(\frac{|f|}{\|f\|_p}\right)^pd\mu+\frac{1}{q}\int_X\left(\frac{|g|}{\|g\|_q}\right)^qd\mu\]
+    Que es equivalente a la desigualdad de Holder. De esto obtenemos que la igualdad en la
+    desigualdad de Holder se cumple si y solamente si $(**)$ es una igualdad, esta a su vez se 
+    cumple si y solamente si
+
+    \[\frac{|f|^p}{\|f\|_p^p} = \frac{|g|^q}{\|g\|_q^q}\]
+    Ahora regresemos a la desigualdad de Minkowski. Si la igualdad se cumple entonces 
+
+    \[\|f\|_p+\|g\|_p = \|f+g\| \leq \||f|+|g|\|_p = \|f\|_p+\|g\|_p\;\cdots\;(3)\]
+    Por lo cual $\|f+g\|_p = \||f|+|g|\|_p$ es equivalente al caso de la igualdad de Minkowski.
+    Como
+
+    \[|f+g|^p \leq (|f|+|g|)^p = |f|(|f|+|g|)^{p-1}+|g|(|f|+|g|)^{p-1}\] 
+    Se cumple para $p > 1$ tenemos que (3) se cumple si y s\'olo si
+    $|f+g| = |f|+|g|$. Ahora, retomando la desigualdad (4) y aplicando la desigualdad de 
+    Holder a $|f|(|f|+|g|)^{p-1}$ y $|g|(|f|+|g|)^{p-1}$ se tiene que 
+    \begin{equation*}
+        \begin{aligned}
+            & \int_X|f+g|^p\;d\mu & \leq  \int_X|f|(|f|+|g|)^{p-1}\;d\mu+\int_X|g|(|f|+|g|)^{p-1}\;d\mu \hspace*{65pt} \\
+            & & \leq \left( \left( \int_X |f|^p\;d\mu\right)^{\frac{1}{p}}+\left( \int_X |g|^p\;d\mu \right)^{\frac{1}{p}} \right)\left( \int_X |f+g|^{q(p-1)}\;d\mu \right)^{\frac{1}{q}}
+        \end{aligned}
+    \end{equation*}
+    Desigualdad que es equivalente a la desigualdad de Minkowski. Con esto tenemos que la 
+    igualdad ocurre si y s\'olo si ocurre la igualdad en la desigualdad de Holder utilizada,
+    Por lo tanto, la igualdad de Minkowski ocurre si y s\'olo si 
+    
+    \[\frac{|f|^p}{\|f\|_p^p} = \frac{|f+g|^p}{\|f+g\|_p^p}\;\; \text{y}\;\; \frac{|g|^p}{\|g\|_p^p} = \frac{|f+g|^p}{\|f+g\|_p^p}\]
+    Por lo tanto la igualdad de Minkowski ocurre si y s\'olo si
+
+    \[\frac{|f|^p}{\|f\|_p^p} = \frac{|g|^p}{\|g\|_p^p}\]
+    \\
+
+    \textbf{Prolema 3.8}
+
+    Sean $(X,\mathcal{F},\mu)$ un espacio de medida, $p\in [1,\infty)$ y $\{f_n\}$ una 
+    sucesi\'on en $L^p(X,\mu,\mathbb{C}),\; g\in L^p(X,\mu,\mathbb{C})$ tales que 
+    $\|f_n-g\|_p\rightarrow 0$. Demuestre que $f_n \overset{\mu}{\rightharpoondown} g$.
+    \\
+    
+    Demostraci\'on: Tomemos $\epsilon > 0$ y consideremos el conjunto $A$ definido como 
+
+    \[A := \{x\in X : |f_n-g| \geq \epsilon\}\]
+    Notemos que la definici\'on de $A$ es equivalente a 
+    $A = \{x\in X : |f_n-g|^p \geq \epsilon^p\}$. Entonces, por la desigualdad de Chebyshev
+    se tiene que 
+
+    \[\mu(A) \leq \frac{1}{\epsilon^p}\int_X |f_n-g|^p\;d\mu = \frac{1}{\epsilon^p}(\|f_n-g\|_p)^p\]
+    Desde que por hipotesis $\|f_n-g\|\rightarrow 0$ cuando $n\rightarrow \infty$ y al ser
+    $\epsilon$ arbitrario pero fijo, tenemos que 
+
+    \[\frac{1}{\epsilon^p}(\|f_n-g\|_p)^p\rightarrow 0\;\; \text{cuando}\;\;n\rightarrow \infty\]
+    De donde $\mu(A)\rightarrow 0$ cuando $n\rightarrow \infty$. Al ser $\epsilon$ arbitrario
+    se concluye que $f_n \overset{\mu}{\rightharpoondown} g$.
+    \newpage 
+
+    \textbf{Problema 3.9}
+
+    Escriba la definici\'on de la pseudonorma $\|\cdot\|_{\infty}$ y demuestre que esta 
+    cumple la propiedad subaditiva.
+    \\
+
+    Sea $f\in L^{\infty}(X)$. Definimos la pseudonorma $\|\cdot\|_{\infty}$ como
+
+    \[\|f\|_{\infty} = \mathrm{ess}\:\sup |f|\]
+    Tomemos $f,g\in L^{\infty} (X)$, entonces, para toda $x\in X$, a ecepci\'on de un
+    conjunto de medida cero en cada caso, tenemos que 
+
+    \[|f(x)| \leq \|f\|_{\infty}\;\; \text{y}\;\; |g(x)| \leq \|f\|_{\infty}\]
+    Ademas, la desigualdad del triangulo nos dice que $|(f+g)(x)| \leq |f(x)|+|g(x)|$
+    para toda $x\in X$, luego se tiene que, para toda $x\in X$ a ecepci\'on de un
+    conjunto de medida cero
+
+    \[|(f+g)(x)| \leq |f(x)|+|g(x)| \leq \|f\|_{\infty}+\|g\|_{\infty}\]
+    De donde obtenemos la propiedad buscada
+
+    \[\|f+g\|_{\infty} \leq \|f\|_{\infty}+\|g\|_{\infty}\]
+    \\
+
+    \textbf{Problema 3.10}
+
+    Sea $(X,\mathcal{F},\mu)$ un espacio de medida finita y sean $p_1,p_2\in [1,\infty]$
+    tales que $p_1 < p_2$. Demuestre que para cada $f$ en 
+    $\mathcal{M}(X,\mathcal{F},[0,\infty])$
+
+    \[\|f\|_{p_1} \leq c\|f\|_{p_2}\]
+    donde $c$ es una constante que solo depende de $\mu(X),p_1$ y $p_2$ (hay que encontrar
+    esta constante). Compare los siguientes conjuntos (ponga $\subseteq$ o $\supseteq$).
+
+    \[L^{p_1}(X,\mathcal{F},\mu,[0,\infty])\hspace*{30pt} L^{p_2}(X,\mathcal{F},\mu,[0,\infty])\]
+    \\
+
+    Primer caso: Supongamos que $1 \leq p_1 < p_2 < \infty$. Notemos que 
+
+    \[\frac{p_1}{p_2}+\frac{p_2-p_1}{p_2} = \frac{p_1p_2+p_2(p_2-p_1)}{p_2^2} = 1\]
+    Es decir $p_2/p_1$ y $p_2/(p_2-p_1)$ son exponentes conjugados, luego es valido aplicar 
+    la desigualdad de Holder de la siguiente manera 
+    \begin{equation*}
+        \begin{aligned}
+            & \|f\|_{p_1}^{p_1} = \int_X |f|^{p_1}\cdot1\;d\mu &\leq \left(\int_X (|f|^{p_1})^{\frac{p_2}{p_1}}\;d\mu\right)^{\frac{p_1}{p_2}}\left(\int_X 1^{\frac{p_2}{p_2-p_1}}\;d\mu\right)^{\frac{p_2-p_1}{p_2}}\hspace*{22pt} \\
+            & & = \left(\int_X |f|^{p_2}\;d\mu\right)^{\frac{p_1}{p_2}}\mu(X)^{\frac{p_2-p_1}{p_2}} = \|f\|_{p_2}^{p_1}\mu(X)^{\frac{p_2-p_1}{p_2}}
+        \end{aligned}
+    \end{equation*}
+    Tomando raiz $p_1$ en ambos lados de la desigualdad obtenemos lo deseado
+
+    \[\|f\|_{p_1} \leq \mu(X)^{\left(\frac{1}{p_1}-\frac{1}{p_2}\right)}\|f\|_{p_2}\]
+
+    Ahora supongamos que $1 \leq p_1 < p_2 = \infty$. Por definici\'on de 
+    $\|\cdot\|_{\infty}$ tenemos que 
+
+    \[|f| \leq \|f\|_{\infty} \;\; \text{c.t.p.}\]
+    entonces el conjunto $B := \{x\in X : |f(x)| > \|f\|_{\infty}\}$ tiene una medida 
+    $\mu(B) = 0$. Luego se tiene que 
+    \begin{equation*}
+        \begin{aligned}
+            &\|f\|_{p_1}^{p_1} & = \int_{X-B} |f|^{p_1}\;d\mu+\int_B |f|^{p_1}\;d\mu = \int_{X-B} |f|^{p_1}\;d\mu \\
+            & & \leq \int_{X-B} \|f\|_{\infty}^{p_1}\;d\mu \leq \int_{X} \|f\|_{\infty}^{p_1}\;d\mu \hspace*{72pt}\\
+            & & = \mu(X)\|f\|_{\infty}^{p_1} \hspace*{170pt}
+        \end{aligned}
+    \end{equation*}
+    Nuevamente, obteniendo ra\'iz $p_1$ obtenemos el resultado deseado.
+
+    \[\|f\|_{p_1} \leq \mu(X)^{\frac{1}{p_1}}\|f\|_{\infty}\]
+    En el caso de las contenciones tenemos que 
+    $L^{p_1}(X,\mathcal{F},\mu,[0,\infty])\supseteq L^{p_2}(X,\mathcal{F},\mu,[0,\infty])$,
+    esto debido a que la existencia de $\|f\|_{p_2}$, junto a las desigualdades mostradas,
+    junto al teorema 3, pagina 297 del Kolmogorov, implican la existencia de $\|f\|_{p_1}$.
+    \\ 
+    
+
+    \textbf{Problema 3.11}
+
+    Sea $(X,\mathcal{F},\mu)$ un espacio de medida tal que 
+    $\mu(X) = 1$, sean $p_1,p_2\in [1,\infty]$ tales que $p_1 < p_2$ y sea 
+    $f\in L^{p_2}(X,\mu,\mathbb{C})$. Demuestre que $f\in L^{p_1}(X,\mu,\mathbb{C})$ y
+    
+    \[\|f\|_{p_1} \leq \|f\|_{p_2}\]
+    
+    Supongamos $1 \leq p_1 < p_2 < \infty$. Del ejercicio 3.10 tenemos que 
+    $\|f\|_{p_1} \leq \mu(X)^{\left(\frac{1}{p_1}-\frac{1}{p_2}\right)}\|f\|_{p_2}$. 
+    Sustituyendo $\mu(X) = 1$ tenemos que 
+
+    \[\|f\|_{p_1} \leq \|f\|_{p_2}\]
+    Ahora supongamos que $1 \leq p_1 < p_2 = \infty$. Del ejercicio 3.10 tenemos que 
+    $\|f\|_{p_1} \leq \mu(X)^{\frac{1}{p_1}}\|f\|_{\infty}$. Sustituyendo $\mu(X) = 1$
+    tenemos que 
+
+    \[\|f\|_{p_1} \leq \|f\|_{\infty}\]
+    \\ \\
+
+    \textbf{Problema 3.12}
+
+    Sea $(X,\mathcal{F},\mu)$ un espacio de medida finita y sea $f\in L^{\infty}(X,\mu)$. 
+    Demuestre que 
+
+    \[\lim_{p\rightarrow \infty}\|f\|_{p} = \|f\|_{\infty}\]
+
+    Demostraci\'on: Si $\|f\|_{\infty} = 0$, el resultado se cumple de manera inmediata.
+    Si $\|f\|_{\infty} = \infty$ entonces $f$ es infinito en toda $X$ a ecepci\'on de un 
+    conjunto de medida cero, luego $\|f\|_p = \infty$.
+    Supongamos que $0 < \|f\|_{\infty} < \infty$ y definamos $M := \|f\|_{\infty}$. Sea 
+    $\epsilon > 0$. Consideremos al conjunto $S := \{x\in X : |f(x)| \geq M-\epsilon\}$, entonces 
+    $\mu(D) > 0$ por definici\'on de $\|\cdot\|_{\infty}$ y $\mu(D) < \infty$ por la 
+    hipotesis de medida finita. La desigualdad
+
+    \[\|f\|_p = \left( \int_X |f|^p\;d\mu \right)^{\frac{1}{p}} \geq \left( \int_D (M-\epsilon)^p\;d\mu \right)^{\frac{1}{p}} = (M-\epsilon)\mu(D)^{\frac{1}{p}}\]
+    Se mantiene para todo $p\in [1,\infty)$. Ademas $\mu(D)^{\frac{1}{p}}\rightarrow 1$ 
+    cuando $p\rightarrow \infty$, por lo tanto, como $\epsilon$ fue arbitrario, tenemos que  
+
+    \[\lim_{p\rightarrow \infty} \|f\|_p \geq M\]
+    Ahora tomemos $\delta > 0$ y consideremos la funci\'on $F:X\rightarrow [0,\infty]$
+    definida como
+
+    \[F(x) := \frac{|f(x)|}{M+\delta}\]
+    Notemos que $0 \leq F \leq M/(M+\delta) < 1\; \mu\;\text{c.t.p.}$, luego se tiene que 
+
+    \[\int_X F^p\;d\mu \leq \int_X \left(\frac{M}{M+\delta}\right)^p\;d\mu = \left(\frac{M}{M+\delta}\right)^p\mu(X)\]
+    Como $\left(\frac{M}{M+\delta}\right)^p\rightarrow 0$ cuando $p\rightarrow \infty$,
+    vemos que con un $p$ suficientemente grande $\int_X F^p\;d\mu \leq 1$. Pero 
+    adem\'as  
+
+    \[\|f\|_p = \left( \int_X |f|^p\;d\mu \right)^{\frac{1}{p}} = (M+\delta)\left(\int_X F^p\;d\mu\right)^{\frac{1}{p}}\]
+    As\'i que, para un $p$ suficientemente grande se tiene que $\|f\|_p \leq M+\delta$, 
+    luego, al ser $\delta$ arbitrario concluimos 
+
+    \[\lim_{p\rightarrow \infty} \|f\|_p \leq M\]
+    Con lo cual obtenemos el resultado deseado.
+    \\ \\ 
+
+    \textbf{Problema 3.13}
+
+    Sea $(X,\mathcal{F},\mu)$ un espacio con medida. Demuestre que el espacio 
+    $L^{\infty}(X,\mathcal{F},\mu,\mathbb{C})$ es completo.
+    \\
+
+    Demostraci\'on: Tomemos $\{F_n\}$ sucesi\'on regular de Cauchy en 
+    $L^{\infty}(X,\mathcal{F},\mu,\mathbb{C})$. Para cada $n\in \mathbb{N}$ elegimos 
+    $f_n\in F_n$. Entonces tenemos que 
+
+    \[\mathrm{ess}\sup|f_n-f_{n+1}| = \|f_n-f_{n+1}\| \leq 2^{-n-1}\]
+    Definamos los conjuntos 
+
+    \[L_n := \{x\in X : |f_n-f_{n+1}| \geq 2^{-n}\},\;\; M = \bigcup_{n=1}^{\infty}L_n,\;\;\text{y}\;\; Y = X-M\]
+    Entonces $\mu(M) = 0$ y, para cada $x\in Y$ y $n\in \mathbb{N}$, tenemos que 
+
+    \[|f_n(x)-f_{n+1}(x)| \leq 2^{-n-1}\]
+    Luego, para cada $x\in Y$ la sucesi\'on $\{f_n(x)\}$ esta sobre $\mathbb{R}$ y es de
+    cauchy, por lo tanto converge. Con esto consideremos a la funci\'on 
+    $g:X\rightarrow \mathbb{R}$ definida como
+    \begin{equation*}
+        g(x) = \left\{
+        \begin{aligned}
+            \lim_{n\rightarrow \infty} f_n(x)\;\; \text{si}\;\; x\in Y \\
+            0 \hspace*{46pt} \text{si}\;\; x\in M
+        \end{aligned}
+        \right.
+    \end{equation*}
+    Entonces para cada $x\in B$ y cualesquiera $n,m\in \mathbb{N}$ con $n\leq m$ se cumple 
+    $|f_n(x)-f_m(x)| \leq 2^{-n}$. Pasando al l\'imite cuando $m\rightarrow \infty$ 
+    obtenemos 
+
+    \[|f_n(x)-g(x)| \leq 2^{-n}\]
+    Por lo tanto 
+
+    \[\mathcal{N}_{\infty}(f_n-g) \leq 2^{-n}\]
+    Esto implica que $\mathcal{N}_{\infty}(g) \leq \mathcal{N}_{\infty}(f_n)+1/2^n$. 
+    Pongamos $G := g+\mathcal{Z}$. Entonces $G\in L^{\infty}$ y 
+    $\|G-F_n\| \leq 2^{-n}$, que es el resultado que deseabamos.
+    \\ \\
+
+    \textbf{Problema 3.14}
+
+    Sea $\{f_n\}$ una sucesi\'on en $L^1(X,\mathcal{F},\mu,\mathbb{C})$ y sea 
+    $g\in L^1(X,\mathcal{F},\mu,\mathbb{C})$. Supongamos que $\|f_n-g\|_1\rightarrow 0$.
+    Muestre que existe una sucesi\'on estrictamente creciente 
+    $v:\mathbb{N}\rightarrow \mathbb{N}$ tal que 
+    $f_{v(p)}\overset{\mu-c.t.p}{\longrightarrow} g$.
+    \\
+
+    Prueba: Para realizar este ejercicio necesitaremos de los siguietes lemas.
+    \\
+
+    Lema 1: Sea $(V,\|\cdot\|)$ un espacio normado. Entonces toda sucesi\'on de Cauchy
+    tiene una subsucesi\'on regular de Cauchy.
+
+    Prueba: Tomemos $\{x_n\}$ sucesi\'on de Cauchy. Para este lema basta con encontrar 
+    $\{n_k\}$ sucesi\'on de naturales creciente tal que $\{x_{n_k}\}$ es sucesi\'on regular 
+    de Cauchy. Construiremos esta sucesi\'on de 
+    forma inductiva. Fijemos $\epsilon_1 = 1/4 = 2^{-1-1}$, entonces existe 
+    $N_1\in \mathbb{N}$ tal que 
+    $\|x_{i}-x_{j}\| < \epsilon_1 = 2^{-1-1}$ para todo $i,j \geq N_1$. Tomemos $n_1 = N_1$.
+    Ahora tomemos $\epsilon_2 = 1/8 = 2^{-2-1}$, entonces existe $N_2\in \mathbb{N}$ tal que 
+    $\|x_{i}-x_{j}\| < \epsilon_2 = 2^{-2-1}$ para todo $i,j \geq N_2$. Tomemos $n_2 = N_2$,
+    entonces como $N_2\leq N_1$ se tiene que $\|x_{n_2}-x_{n_1}\| < 2^{-1-1}$. Siguiendo 
+    este procedimiento, supongamos que tenemos definido $n_{k}$, entonces, siendo 
+    $\epsilon_{k+1} = 2^{-k-2}$ generamos, al igual de como lo hicimos con $N_1$ y $N_2$, 
+    a $N_{k+1}$. Entonces $\|x_{n_{k+1}}-x_{n_k}\| < 2^{-k-1}$ desde que $N_{k+1} \leq N_k$.
+    Finalmente $\{n_k\}$ es la sucesi\'on de naturales que buscabamos, o equivalente,
+    $\{x_{n_k}\}$ es una sucesi\'on regular de Cauchy.
+    \\
+
+    Lema 2: Si $f_n:X\rightarrow [-\infty,\infty]$ es medible para todo $n\in \mathbb{N}$,
+    entonces las funciones 
+
+    \[g(x) = \inf_{n \geq k} f_n(x)\;\; \text{y}\;\; h(x) = \liminf_{n\rightarrow \infty} f_n(x)\]
+    Son medibles.
+
+    Prueba: Para ver el caso de $g$ basta notar que
+
+    \[g^{-1}[-\infty,t) = \bigcup_{n=k}^{\infty} f_n^{-1}[-\infty,t)\]
+    Como cada $f_n$ es medible, se tiene que $\cup_{n \geq k} f_n^{-1}[-\infty,t)$ pertenece al 
+    \'algebra de $X$, luego, como ya hemos probado que los rayos de la forma 
+    $[-\infty,t)$ generan al \'algebra del eje real extendido, se tiene que $g$ es medible.
+    De manera similar se demuestra que la funcion $\sup_{n \geq k} f_n(x)$ es medible.
+    
+    Para el caso de $h$ solo necesitamos ver que 
+
+    \[h(x) = \sup_k(\inf_{n \geq k}f_n(x))\]
+    Luego aplicamos el resultado anterior y obtenemos que $h$ tambien es medible.
+    \\
+
+    Lema 3 (Lema de Fatou): Sea $\{f_n\}$ una sicesi\'on de funciones no negativas
+    medibles, entonces  
+
+    \[\int_X \left(\liminf_{n\rightarrow \infty}f_n \right)\;d\mu \leq \liminf_{n\rightarrow \infty} \int_X f_n\;d\mu\]
+    
+    Prueba: Sea  $h(x) = \liminf_{n\rightarrow \infty} f_n(x)$. Definamos 
+    las funciones $g_k(x) := \inf_{n \geq k}f_n(x)$. Entonces, por la difinici\'on de 
+    $\liminf$,
+
+    \[h(x) = \lim_{k\rightarrow \infty}g_k(x)\]
+    Por el lema 2, las funciones $g_k$ son medibles y la sucesi\'on $\{g_k\}$ es creciente. Aplicamos el 
+    teorema de convergencia mon\'otona a esta sucesi\'on
+
+    \[\int_X h\;d\mu = \lim_{k\rightarrow \infty} \int_X g_k\;d\mu\]
+    Por la definicion de $g_k$ y por la definici\'on de \'infimo tenemos que para todo 
+    $n \geq k$ y para todo $x\in X\;\; f_n(x) \geq g_k(x)$. Por la monoton\'ia de la 
+    integral respecto a la funci\'on
+    
+    \[\text{Para todo}\;\; n\geq k\;\; \int_X f_n\;d\mu \geq \int_X g_k\;d\mu\]
+    En otras palabras, hemos demostrado que $\int g_k$ es una cota inferior del conjunto
+    $\left\{\int f_n : n \geq k\right\}$, luego 
+
+    \[\inf_{n\geq k} \int_X f_n\;d\mu \geq \int_X g_k\;d\mu\]
+    Finalmente pasamos al l\'imite cuando $k$ tiende a infinito para obtener nuestro 
+    resultado.
+
+    \[\liminf_{n\rightarrow \infty} \int_Xf_n \;d\mu = \lim_{k\rightarrow \infty}\inf_{n\geq k} \int_X f_n\;d\mu \leq \lim_{k\rightarrow \infty}\int_X g_k\;d\mu = \int_X h\;d\mu\]
+    \\
+
+    Retomando nuestro ejercicio, por el lema 1 $\{f_n\}$ tiene una subsucesi\'on regular
+    de Cauchy, es decir, existe $\{n_k\}$ sucesion de naturales tal que 
+    $\|f_{n_k+1}-f_{n_k}\|_1 < 2^{-k}$. Definamos
+
+    \[g_k := \sum_{i=1}^k|f_{n_i+1}-f_{n_i}|\;\; \text{y}\;\; g:= \lim_{k\rightarrow \infty}g_k\]
+    Entonces, por la desigualdad de Minkowski tenemos que $\|g_k\|_1 < 1$ para todo 
+    $k\in \mathbb{N}$. Por lo tanto, al aplicar el lema 3 a la sucesi\'on $\{g_k\}$
+    tenemos que $\|g\|_1 \leq 1$, luego $g(x) < \infty$ en todo $X$ a ecepci\'on de un 
+    conjunto de medida cero (llamemos a este conjunto $B$), por lo tanto la serie
+
+    \[f_{n_1}(x)+\sum_{i=1}^{\infty} (f_{n_{i+1}}(x)-f_{n_i}(x)) =: h(x)\]
+    Converge en $X-B$. Definamos la funcion $f:X\rightarrow \mathcal{R}$ como 
+    \begin{equation*}
+        f(x) := \left\{
+            \begin{aligned}
+                h(x)\;\;\text{si}\;\; x\in X-B \\
+                0 \hspace*{40pt} \text{si}\;\; x\in B
+            \end{aligned}
+            \right.
+    \end{equation*}
+    Desde que $f_{n_1}+\sum_{i=1}^{k-1}(f_{n_i+1}-f_{n_i}) = f_{n_k}$ se tiene que 
+
+    \[f(x) = \lim_{i\rightarrow \infty}f_{n_i}(x)\;\; \text{para todo}\;\; x\in X-B\]
+    Con esto hemos probado que $f$ es una funci\'on que es el limite puntual de 
+    $\{f_{n_i}\}$ para todo $X-B$. Como $\{f_{n_i}\}$ es una subsucesi\'on de 
+    $\{f_{n}\}$ se sigue que $f\rightarrow g$ casi en todas partes, de donde se sigue 
+    el resultado deseado.
+    \\
+
+    \textbf{Problema 3.15}
+
+    Sea $f\in \mathcal{SM}(X,\mathcal{F},\mathbb{C})$ y sea $1 \leq p < \infty$. Demuestre 
+    que 
+
+    \[\mu(\{x\in X : f(x) \neq 0\}) < \infty \; \Leftrightarrow\; \|f\|_p < \infty\]
+
+    Demostraci\'on: Definamos a $D :=\{x\in X : f(x) \neq 0\}$. $f$ es una funci\'on simple 
+    y medible, entonces existe 
+    $\{A_1,\ldots,A_n\}$ partici\'on de conjuntos medibles de $X$ tal que 
+
+    \[f = \sum_{k=1}^n c_k\chi_{A_i}\]
+    De donde tenemos que $A_k = f^{-1}(c_k)$. Si $c_k \neq 0$, entonces $A_k \subseteq D$.
+    Mas aun
+
+    \[D = \bigcup_{i\in I} A_i\;\; \text{donde}\;\; I := \{i\in\{1,\ldots,n\} : c_i \neq 0\}\; \cdots\; (1)\]
+    Aplicando la definici\'on de integral para una funci\'on simple obtenemos
+
+    \[\int_X |f|^p\;d\mu = \sum_{k=1}^n(c_k)^p\mu(A_k) = \sum_{k\in I}(c_k)^p\mu(A_k)\; \ldots\; (2)\]
+    Supongamos que $\mu(D) < \infty$. De (1) tenemos que $\mu(A_i) < \infty$ para todo 
+    $i\in I$, luego, la ultima suma de (2) es finita, de donde se sigue $\|f\|_p < \infty$. 
+
+    Ahora supongamos que $\|f\|_p < \infty$, entonces de (2) tenemos que $\mu(A_i) < \infty$
+    para todo $i\in I$, pero $D = \cup_{i\in I} A_i$ y ademas los $A_i$'s son disjuntos,
+    luego
+
+    \[\mu(D) = \sum_{i\in I} \mu(A_i) < \infty\]
+    \\
+
+    \textbf{Problema 3.16}
+
+    Sea $(X,\tau)$ un espacio topol\'ogico de Hausdorff localmente compacto, sea 
+    $\mathcal{F}\subseteq 2^X$ una $\sigma$-\'algebra que contiene a todos los conjuntos 
+    de Borel y sea $\mu:\mathcal{F}\rightarrow [0,\infty]$ una medida regular. Demuestre 
+    que para todo $p\in [1,\infty)$ el conjunto $C_c(X,\mathbb{C})$ es denso en 
+    $L^1(X,\mu,\mathbb{C})$.
+    \\
+
+    Demostraci\'on: Para esta preba necesitaremos de si siguiete lema (mas precisamente, 
+    necesitaremos un corolario del mismo). 
+    \\
+
+    Definici\'on: Sea $X$ un espacio topol\'ogico. Decimos que $X$ es normal
+    si para cada par $A,B\subset X$ cerrados disjuntos existen $V(A),V(B)\subset X$
+    abiertos disjuntas tales que $A\subset V(A)$ y $B\subset V(B)$.
+    \\
+
+    Lema de Urysohn: Si $A,B$ son conjuntos cerrados disjuntos en un espacio normal $X$,
+    entonces existe una funci\'on continua $f:X\rightarrow [0,1]$ tal que para todo 
+    $a\in A,\; f(a) = 0$ y para todo $b\in B,\; f(b) = 1$
+    \\
+
+    Prueba: Consideremos al conjunto
+
+    \[D := [0,1]\cap\left\{\frac{z}{2^n} : z\in\mathbb{Z}\;\; \text{y}\;\; n\in \mathbb{N}\right\}\]
+    Construiremos una sucesi\'on de abiertos $\{U_q\}$ con los subindices $q\in D$. Primero
+    pongamos a $U_1 = X$. Desde que $X$ es normal, existen vecindades abiertas disjuntas 
+    $U(A)$ y $V(B)$. Tomemos a $U_0 = U(A)$. Notemos que $\overline{U_0}\cap B = \emptyset$
+    o equivalente $\overline{U_0}$ esta contenido en el abierto $X-B$. Desde que $X$ es 
+    normal, existe un conjuto abierto (que llamaremos $U_{1/2}$) tal que 
+
+    \[\overline{U_0} \subset U_{1/2} \subset \overline{U_{1/2}} \subset X-B\]
+    Continuamos de manera inductiva. Desde que que $\overline{U_0}$ y $X-U_{1/2}$ son 
+    cerrados disjuntos, creamos $U_{1/4}$ entre $U_0$ y $U_{1/2}$, de la misma manera 
+    creamos $U_{3/4}$ entre $U_{1/2}$ y $X-B$, luego creamos $U_{1/8}, U_{3/8}$, etc.
+    Con esta construcci\'on tenemos que $\{U_q\}$ es una sucesi\'on de conjutos abiertos 
+    tales que 
+    \\
+
+    $i$) \hspace*{4pt} Para cada $q\in D,\; A\subset U_q$
+
+    $ii$) \hspace*{1pt} $B\subset U_1$ y para cada $q < 1,\; B\cap U_q = \emptyset$
+
+    $iii$) Para cada $p,q\in D$ con $p < q$, tenemos que $U_p \subset U_q$
+    \\
+
+    Ahora consideremos la funci\'on $f:X\rightarrow [0,1]$ definida como
+
+    \[f(x) := \inf\{q\in D : x\in U_q\}\]
+    Esta funci\'on esta bien definida ya que cada elemento de $X$ esta contenido en algun 
+    $U_q$, por lo menos en $U_1 = X$. Por la propiedad ($i$), $f$ es cero en $A$, y por 
+    la propiedad ($ii$), $f$ es 1 en $B$. Solo queda probar que $f$ es continua. Para esto
+    necesitaremos de las siguientes afirmaciones
+    \\
+
+    a) Si $f(x) > q$ entonces $x \notin \overline{U_q}$.
+    
+    \hspace*{8pt} En efecto, definamos a $D(x) := \{q\in D : x\in U_q\}$, entonces $f(x) = \inf D(x)$.
+    Si \hspace*{26pt} $f(x) > q$, entonces, por propiedades del infimo, existe $p\in D$ tal que 
+    $q < p < f(x)$, \hspace*{27pt} luego $x\notin U_p$. Pero por la propiedad ($iii$) 
+    $\overline{U_q}\subset U_p$, por lo tanto $x\notin \overline{U_q}$
+    \\
+
+    b) Si $f(x) < q$ entonces $x\in U_q$.
+
+    \hspace*{10pt} Se sigue de la probiedad ($iii$).
+    \\
+
+    Ahora probaremos la continuidad de $f$. Para esto solo sera necesario mostrar que las 
+    preimagenes $f^{-1}(a,1]$ y $f^{-1}[0,b)$ son abiertas en $X$. Suponga que 
+    $f(x)\in (a,1]$. Tomemos $q$ tal que $a < q < f(x)$ y consideremos el conjunto abierto
+    $V = X-\overline{U_q}$, entonces por (a) $x\in V$, asi que $V$ es una vecindad de $x$.
+    Si $y\in V$, entonces por (b) tenemos que $f(y)\in (a,1]$. Por lo tanto 
+    $f^{-1}(a,1] = V$ que es un abierto.
+    
+    Ahora supongamos que $f(x)\in [0,b)$. Tomemos $q$ tal que $f(x) < q < b$. Por (b)
+    tenemos $x\in U_q$, que por ser abierto, tenemos que es vecindad de $x$. Tomemos 
+    $y\in U_q$, entonces de la definici\'on de $f$ se sigue que $f(y) \leq q$. Por lo 
+    tanto $f^{-1}[0,b) = U_q$ que es un abierto. Con esto terminamos nuestra prueba.
+    \\
+
+    Corolario de Urysohn: Sean $X$ un espacio de Hausdorff localmente compacto, $K$ un 
+    compacto en $X$ y $U$ un abierto en $X$ tal que $K\subset U$. Entonces existe una 
+    funci\'on $f\in C_c(X,[0,1])$ tal que $\chi_k \leq f$ y $\mathrm{supp} (f)\subset U$.
+    \\
+
+    Ahora demostraremos nuestro ejercicio. Primero verificaremos que $C_c(X,\mathbb{C})$ 
+    es un subconjunto de $L^p(X,\mu)$. Si $f\in C_c(X,\mathbb{C})$, entonces $f$ es acotada
+    y 
+
+    \[\|f\|_p^p \leq \mu(\mathrm{supp}(f))\|f\|_{infty}^p\]
+    Ahora veamos que $C_c(X,\mathbb{C})$ es denso en $L^p(X,\mu)$. De "Completitud de los espacios $L^p$"
+    de las notas de Maximeko, sabemos que el conjunto 
+
+    \[\mathcal{S} = \{f : f\;\text{es simple, medible y}\; \mu(\{x\in X : f(x)\neq 0\}) < \infty\}\]
+    es denso en $L^p$. Adem\'as cada funci\'on de la clase $\mathcal{S}$ es una combinaci\'on
+    lineal de funciones caracter\'isticas de conjuntos de medida finita. Entonces, si 
+    para cada funcion caracteristica $\chi_A,\; \mu(A) < \infty$ logramos encontrar un $f\in C_c(X,\mathbb{C})$
+    tal que $\|f-\chi_A\|_p < \epsilon$ para $\epsilon$ positivo arbitrario, habremos 
+    terminado.
+
+    Sea $A\in \mathcal{F}$ tal que $\mu(A) < \infty$. Tomemos $\epsilon > 0$ y pongamos 
+    $\delta = (\epsilon/2)^p/2$. Con la hip\'otesis de que $\mu$ es regular, encontramos 
+    un compacto $K$ y un abierto $V$ tales Que
+
+    \[K\subset A \subset V,\; \mu(K) > \mu(A)-\delta\; \text{y}\; \mu(V) < \mu(A)+\delta\]
+    Aplicando el corolario de Urysohn encontramos una funci\'on $f\in C_c(X,[0,1])$ tal que 
+    $\chi_K \leq f$ y $\mathrm{supp}(f) \subset V$. Entonces
+    \begin{equation*}
+        \begin{aligned}
+            &\|f-\chi_A\|_p & \leq \|f-\chi_K\|_p+\|\chi_K-\chi_A\|_p \\
+            & &\leq \mu(V-K)^{\frac{1}{p}}+\mu(A-K)^{\frac{1}{p}} \\ 
+            & &< 2(2\delta)^{\frac{1}{p}} = \epsilon \hspace*{76pt}
+        \end{aligned}
+    \end{equation*}
+    Que es lo que estabamos buscando.
+
+    \end{document}
